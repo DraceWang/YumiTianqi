@@ -8,36 +8,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.weathertest.MainActivity" >
 
-    <Button
-        android:id="@+id/get"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/code"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:onClick="clickHandler"
-        android:text="getWeather" />
-
-    <EditText
-        android:id="@+id/code"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/cityname"
-        android:ems="10"
-        android:inputType="number" >
-
-        <requestFocus />
-    </EditText>
-
-    <TextView
-        android:id="@+id/cityname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_toLeftOf="@+id/code"
-        android:text="CityCode:" />
-
     <TextView
         android:id="@+id/weatherCondition"
         android:layout_width="wrap_content"
@@ -46,5 +16,27 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="58dp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/get"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/MACTCityName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+        android:onClick="clickHandler"
+        android:text="getWeather" />
+
+    <MultiAutoCompleteTextView
+        android:id="@+id/MACTCityName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
+        android:completionHint="输入城市的名字或拼音"
+        android:completionThreshold="1"
+        android:ems="10"
+        android:hint="请输入所要查询的城市" />
 
 </RelativeLayout>

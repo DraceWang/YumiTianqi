@@ -1,0 +1,347 @@
+宁夏回族自治区;Ningxia, China;|1257801
+马鞍山市;Ma'anshan, Anhui, China;|2127873
+六安市;Lu'an (六安市), Anhui, China;|2127872
+宣城市;Xuancheng (宣城市), Anhui, China;|2127882
+宿州市;Suzhou (宿州市), Anhui, China;|2127874
+铜陵市;Tongling (铜陵市), Anhui, China;|2127374
+芜湖市;Wuhu, Anhui, China;|2127875
+亳州市;Bozhou (亳州市), Anhui, China;|2127876
+蚌埠市;Bengbu (蚌埠市), Anhui, China;|2127869
+安庆市;Anqing, Anhui, China;|2127868
+滁州市;Chuzhou (滁州市), Anhui, China;|2126270
+巢湖市;Chaohu (巢湖市), Anhui, China;|2126230
+阜阳市;Fuyang, Anhui, China;|2127870
+池州市;Chizhou, Anhui, China;|2619821
+合肥市;Hefei, Anhui, China;|2127866
+黄山市;Huangshan (黄山市), Anhui, China;|2126620
+淮南市;Huainan (淮南市), Anhui, China;|2127867
+淮北市;Huaibei (淮北市), Anhui, China;|2127871
+龙岩市;Longyan (龙岩市), Fujian, China;|2139971
+三明市;Sanming (三明市), Fujian, China;|2139966
+泉州市;Quanzhou (泉州市), Fujian, China;|2139965
+厦门市;Xiamen (厦门市), Fujian, China;|2139967
+漳州市;Zhangzhou (漳州市), Fujian, China;|2139969
+莆田市;Putian (莆田市), Fujian, China;|2140154
+南平市;Nanping (南平市), Fujian, China;|2139964
+宁德市;Ningde, Fujian, China;|2619834
+福州市;Fuzhou (福州市), Fujian, China;|2139963
+陇南市;Longnan, Gansu, China;|2619812
+兰州市;Lanzhou (兰州市), Gansu, China;|2145605
+天水市;Tianshui (天水市), Gansu, China;|2145609
+武威市;Wuwei (武威市), Gansu, China;|2145610
+庆阳市;Qingyang, Gansu, China;|2619813
+张掖市;Zhangye, Gansu, China;|2145618
+平凉市;Pingliang (平凉市), Gansu, China;|2145615
+白银市;Baiyin (白银市), Gansu, China;|2145631
+定西市;Dingxi, Gansu, China;|2619812
+甘南藏族自治州;Gannan Zangzu, Gansu, China;|2619812
+嘉峪关市;Jiayuguan, Gansu, China;|2145613
+金昌市;Jinchang (金昌市), Gansu, China;|2145607
+酒泉市;Jiuquan, Gansu, China;|2619813
+茂名市;Maoming (茂名市), Guangdong, China;|2161851
+梅州市;Meizhou (梅州市), Guangdong, China;|2161865
+清远市;Qingcheng, Guangdong, China;|2161867
+汕尾市;Guicheng (汕尾市), Guangxi, China;|2166479
+汕头市;Shantou, Guangdong, China;|2162312
+深圳市;Shenzhen (深圳市), Guangdong, China;|2161853
+韶关市;Shaoguan (韶关市), Guangdong, China;|2161852
+阳江市;Jiangcheng, Guangdong, China;|2161846
+云浮市;Yunfu, Guangdong, China;|2619834
+湛江市;Zhanjiang (湛江市), Guangdong, China;|2161839
+肇庆市;Zhaoqing (肇庆市), Guangdong, China;|2161855
+中山市;Shiqi, Guangdong, China;|2161664
+珠海市;Zhuhai (珠海市), Guangdong, China;|2161856
+潮州市;Chaozhou (潮州市), Guangdong, China;|2161841
+东莞市;Dongguan (东莞市), Guangdong, China;|2161842
+佛山市;Foshan (佛山市), Guangdong, China;|2161843
+广州市;Guangzhou (广州市), Guangdong, China;|2161838
+河源市;Heyuan (河源市), Guangdong, China;|2161878
+惠州市;Huizhou (惠州市), Guangdong, China;|2161845
+揭阳市;Jieyang, Guangdong, China;|2161849
+江门市;Jiangmen (江门市), Guangdong, China;|2161847
+柳州市;Liuzhou (柳州市), Guangxi, China;|2165890
+崇左市;Chongzuo, Guangxi, China;|2928193
+钦州市;Qinzhou, Guangxi, China;|2166484
+梧州市;Wuzhou (梧州市), Guangxi, China;|2166475
+玉林市;Yulin (玉林市), Guangxi, China;|2166476
+南宁市;Nanning, Guangxi, China;|2166473
+百色市;Bose (百色市), Guangxi, China;|2166478
+北海市;Beihai (北海市), Guangxi, China;|2166477
+防城港市;Fangchenggang, Guangxi, China;|2619818
+桂林市;Guilin (桂林市), Guangxi, China;|2166474
+河池;Hechi (河池), Guangxi, China;|2167053
+贺州市;Hezhou, Guangxi, China;|2619835
+六盘水市;Liupanshui (六盘水市), Guizhou, China;|2146709
+黔西南布依族苗族自治州;Qianxi'nan Buyizu Miaozu, Guizhou, China;|2619835
+黔南布依族苗族自治州;Qiannan Buyizu Miaozu, Guizhou, China;|2619835
+黔东南苗族侗族自治州;Qiandongnan Miaozu Dongzu, Guizhou, China;|2619835
+铜仁市;Tongren, Guizhou, China;|2619835
+安顺市;Anshun (安顺市), Guizhou, China;|2146704
+毕节市;Bijie, Guizhou, China;|2619822
+贵阳市;Guiyang (贵阳市), Guizhou, China;|2146703
+遵义市;Zunyi, Guizhou, China;|2146713
+三亚市;Sanya (三亚市), Hainan, China;|2162784
+海口市;Haikou (海口市), Hainan, China;|2162779
+廊坊市;Langfang (廊坊市), Hebei, China;|2171300
+秦皇岛市;Qinhuangdao, Hebei, China;|2619836
+邢台市;Xingtai (邢台市), Hebei, China;|2171295
+石家庄市;Shijiazhuang, Hebei, China;|2171287
+唐山市;Tangshan, Hebei, China;|2171288
+张家口市;Zhangjiakou, Hebei, China;|2171688
+保定市;Baoding (保定市), Hebei, China;|2171290
+沧州市;Cangzhou, Hebei, China;|2171291
+承德市;Chengde (承德市), Hebei, China;|2171292
+衡水市;Hengshui (衡水市), Hebei, China;|2171299
+邯郸市;Handan, Hebei, China;|2619825
+洛阳市;Luoyang, Henan, China;|2172738
+新乡市;Xinxiang, Henan, China;|2619836
+许昌市;Xuchang (许昌市), Henan, China;|2172818
+信阳市;Xinyang, Henan, China;|2619810
+商丘市;Shangqiu (商丘市), Henan, China;|2172745
+三门峡市;Sanmenxia, Henan, China;|2172762
+濮阳市;Puyang, Henan, China;|2619810
+漯河市;Luohe (漯河市), Henan, China;|2172742
+南阳市;Nanyang, Henan, China;|2172743
+平顶山市;Pingdingshan (平顶山市), Henan, China;|2172744
+周口市;Zhoukou (周口市), Henan, China;|2172747
+郑州市;Zhengzhou (郑州市), Henan, China;|2172736
+安阳市;Anyang (安阳市), Kyeongki-Do, South Korea;|1132443
+鹤壁市;Hebi, Henan, China;|2172752
+焦作市;Jiaozuo (焦作市), Henan, China;|2172741
+开封市;Kaifeng, Henan, China;|2172737
+驻马店市;Zhumadian, Henan, China;|2172748
+绥化市;Suihua, Heilongjiang, China;|2619825
+双鸭山市;Shuangyashan (双鸭山市), Heilongjiang, China;|2141178
+伊春市;Yichun, Heilongjiang, China;|2141180
+齐齐哈尔市;Qiqihar (齐齐哈尔市), Heilongjiang, China;|2141167
+牡丹江市;Mudanjiang (牡丹江市), Heilongjiang, China;|2141176
+七台河市;Qitaihe (七台河市), Heilongjiang, China;|2141209
+大庆市;Daqing (大庆市), Heilongjiang, China;|2141168
+大兴安岭市;Daxing'anling, Heilongjiang, China;|2619805
+哈尔滨市;Harbin, Heilongjiang, China;|2141166
+黑河市;Heihe (黑河市), Heilongjiang, China;|2141192
+鹤岗市;Hegang, Heilongjiang, China;|2141169
+佳木斯市;Jiamusi (佳木斯市), Heilongjiang, China;|2141175
+鸡西市;Jixi, Heilongjiang, China;|2141170
+孝感市;Xiaogan (孝感市), Hubei, China;|2163885
+随州市;Suizhou (随州市), Hubei, China;|2163514
+十堰市;Shiyan (十堰市), Hubei, China;|2163870
+咸宁市;Xianning, Hubei, China;|2163908
+襄樊市;Xiangfan (襄樊市), Hubei, China;|2163871
+武汉市;Wuhan (武汉市), Hubei, China;|2163866
+宜昌市;Yichang (宜昌市), Hubei, China;|2163872
+鄂州市;Ezhou (鄂州市), Hubei, China;|2163023
+恩施市;Enshi (恩施市), Hubei, China;|2163874
+黄石市;Huangshi (黄石市), Hubei, China;|2163875
+黄冈市;Huanggang, Hubei, China;|2619826
+荆门市;Jingmen (荆门市), Hubei, China;|2163877
+荆州市;Jingzhou, Hubei, China;|2163868
+娄底市;Loudi, Hunan, China;|2142716
+邵阳市;Shaoyang, Hunan, China;|2619816
+湘潭市;Xiangtan (湘潭市), Hunan, China;|2142701
+湘西土家族苗族自治州;Xiangxi Tujiazu Miaozu, Hunan, China;|2619816
+岳阳市;Yueyang, Hunan, China;|2619821
+永州市;Yongzhou, Hunan, China;|2619816
+张家界市;Dayong, Hunan, China;|2142725
+益阳市;Yiyang, Hunan, China;|2619820
+株洲市;Zhuzhou (株洲市), Hunan, China;|2142708
+常德市;Changde, Hunan, China;|2619820
+长沙市;Changsha, Hunan, China;|2142699
+郴州市;Chenzhou (郴州市), Hunan, China;|2142703
+衡阳市;Hengyang, Hunan, China;|2619816
+怀化市;Huaihua, Hunan, China;|2619821
+辽源市;Liaoyuan, Jilin, China;|2138127
+松原市;Matsubara shi (松原市), Osaka Prefecture, Japan;|1111634
+四平市;Siping (四平市), Jilin, China;|2138128
+通化市;Tonghua (通化市), Jilin, China;|2138129
+延边朝鲜族自治州;Yanbian Chaoxianzu, Jilin, China;|2619806
+白山市;Hunjiang (白山市), Jilin, China;|2138122
+白城市;Baicheng (白城市), Jilin, China;|2138123
+长春市;Changchun, Jilin, China;|2619806
+吉林市;Jilin, Jilin, China;|2138121
+连云港市;Lianyungang, Jiangsu, China;|2619809
+徐州市;Xuzhou, Jiangsu, China;|2137084
+苏州市;Suzhou, Jiangsu, China;|2137082
+宿迁市;Suqian, Jiangsu, China;|2137105
+泰州市;Taizhou (泰州市), Jiangsu, China;|2137090
+无锡市;Wuxi, Jiangsu, China;|2137083
+扬州市;Yangzhou, Jiangsu, China;|2137092
+盐城市;Yancheng, Jiangsu, China;|2137091
+镇江市;Zhenjiang, Jiangsu, China;|2137093
+南通市;Nantong (南通市), Jiangsu, China;|2137088
+南京市;Nanjing, Jiangsu, China;|2619809
+常州市;Changzhou (常州市), Jiangsu, China;|2137085
+淮安市;Huaiyin (淮安市), Jiangsu, China;|2135024
+新余市;Xinyu (新余市), Jiangxi, China;|2133716
+上饶市;Shangrao (上饶市), Jiangxi, China;|2133711
+宜春市;Yichun (宜春市), Jiangxi, China;|2133712
+鹰潭市;Yingtan (鹰潭市), Jiangxi, China;|2133717
+南昌市;Nanchang, Jiangxi, China;|2133704
+萍乡市;Ping Township (萍乡市), Jiangxi, China;|2133705
+赣州市;Ganzhou (赣州市), Jiangxi, China;|2133707
+抚州市;Fuzhou, Jiangxi, China;|2619815
+吉安市;Ji'an (吉安市), Jilin, China;|2137566
+九江市;Jiujiang (九江市), Jiangxi, China;|2133710
+景德镇市;Jingde Town, Jiangxi, China;|2133709
+辽阳市;Liaoyang, Liaoning, China;|2619822
+沈阳市;Shenyang, Liaoning, China;|2148332
+铁岭市;Tieling, Liaoning, China;|2619807
+营口市;Yingkou, Liaoning, China;|2619807
+盘锦市;Panjin, Liaoning, China;|2619822
+鞍山市;Anshan (鞍山市), Liaoning, China;|2147988
+本溪市;Benxi (本溪市), Liaoning, China;|2147989
+朝阳市;Chaoyang (朝阳市), Liaoning, China;|2147994
+大连市;Dalian (大连市), Liaoning, China;|2147986
+丹东市;Dandong (丹东市), Liaoning, China;|2147990
+抚顺市;Fushun, Liaoning, China;|2619807
+阜新市;Fuxin (阜新市), Liaoning, China;|2147991
+葫芦岛市;Huludao, Liaoning, China;|2619806
+锦州市;Jinzhou (锦州市), Liaoning, China;|2147992
+兴安市;Xingan, Nei Mongol, China;|2619806
+乌兰察布市;Wulanchabu, Nei Mongol, China;|2619828
+乌海市;Wuhai, Nei Mongol, China;|2619804
+锡林郭勒市;Xilinguole, Nei Mongol, China;|2619806
+通辽市;Tongliao, Nei Mongol, China;|2149767
+巴彦淖尔市;Bayannaoer, Nei Mongol, China;|2619805
+包头市;Baotou (包头市), Nei Mongol, China;|2149759
+阿拉善市;Alashan, Nei Mongol, China;|2619805
+赤峰市;Chifeng (赤峰市), Nei Mongol, China;|2149762
+鄂尔多斯市;Erdos, Nei Mongol, China;|2619828
+呼伦贝尔市;Hulunbeier, Nei Mongol, China;|2619822
+呼和浩特市;Hohhot (呼和浩特市), Nei Mongol, China;|2149760
+石嘴山市;Shizuishan (石嘴山市), Ningxia, China;|2150550
+吴忠;Wuzhong (吴忠), Ningxia, China;|2150554
+银川市;Yinchuan, Ningxia, China;|2150551
+固原市;Guyuan, Ningxia, China;|2619813
+西宁市;Xining, Qinghai, China;|2138941
+玉树藏族自治州;Yushu Zangzu, Qinghai, China;|2619828
+果洛藏族自治州;Guoluo Zangzu, Qinghai, China;|2619823
+海西蒙古族藏族自治州;Haixi Mengguzu Zangzu, Qinghai, China;|2619823
+海南藏族自治州;Hainan Zangzu, Qinghai, China;|2619828
+海北藏族自治州;Haibei Zangzu, Qinghai, China;|2619829
+海东市;Haidong, Qinghai, China;|2619829
+临沂市;Linyi, Shandong, China;|2168342
+聊城市;Liaocheng (聊城市), Shandong, China;|2168340
+莱芜市;Laiwu, Shandong, China;|2168339
+青岛市;Qingdao, Shandong, China;|2168606
+日照市;Jichaohsien (日照市), Shandong, China;|2167581
+泰安市;Tai'an (泰安市), Shandong, China;|2168328
+潍坊市;Weifang, Shandong, China;|2168348
+威海市;Weihai (威海市), Shandong, China;|2168396
+烟台市;Yantai, Shandong, China;|2619808
+枣庄市;Zaozhuang, Shandong, China;|2168332
+滨州市;Binzhou, Shandong, China;|2168333
+德州市;Dezhou (德州市), Shandong, China;|2168334
+东营市;Dongying, Shandong, China;|2168485
+菏泽市;Heze, Shandong, China;|2168336
+济南市;Jinan, Shandong, China;|2168327
+济宁市;Jining, Shandong, China;|2168337
+淄博市;Zhangdian, Shandong, China;|2168257
+吕梁市;Lyuliang, Shanxi, China;|2619811
+临汾市;Linfen, Shanxi, China;|2154551
+忻州市;Xinzhou (忻州市), Shanxi, China;|2154146
+朔州市;Shuozhou (朔州市), Shanxi, China;|2153653
+太原市;Taiyuan, Shanxi, China;|2154547
+阳泉市;Yangquan, Shanxi, China;|2619811
+运城市;Yuncheng, Shanxi, China;|2619810
+长治市;Changzhi, Shanxi, China;|2619830
+大同市;Datong (大同市), Shanxi, China;|2154548
+晋中市;Jinzhong, Shanxi, China;|2619830
+晋城市;Jincheng (晋城市), Shanxi, China;|2154556
+商洛市;Shangluo, Shaanxi, China;|2619811
+咸阳市;Xianyang (咸阳市), Shaanxi, China;|2156959
+铜川市;Tongchuan, Shaanxi, China;|2619812
+渭南市;Weinan (渭南市), Shaanxi, China;|2156958
+西安市;Xi'an (西安市), Shaanxi, China;|2157249
+延安市;Yan'an (延安市), Shaanxi, China;|2156695
+榆林市;Yulin (榆林市), Shaanxi, China;|2156963
+安康市;Ankang (安康市), Shaanxi, China;|2156953
+宝鸡市;Baoji, Shaanxi, China;|2619811
+汉中市;Hanzhong, Shaanxi, China;|2156955
+绵阳市;Mianyang (绵阳市), Sichuan, China;|2158439
+泸州市;Luzhou (泸州市), Sichuan, China;|2158438
+乐山市;Leshan (乐山市), Sichuan, China;|2158437
+凉山彝族自治州;Liangshan Yizu, Sichuan, China;|2619819
+眉山市;Meishan, Sichuan, China;|2619819
+遂宁市;Suining, Sichuan, China;|2158442
+雅安市;Ya'an (雅安市), Sichuan, China;|2158452
+宜宾市;Yibin, Sichuan, China;|2619837
+攀枝花市;Panzhihua (攀枝花市), Sichuan, China;|2157956
+南充市;Nanchong (南充市), Sichuan, China;|2158440
+内江市;Neijiang (内江市), Sichuan, China;|2158441
+巴中市;Bazhong, Sichuan, China;|2619829
+成都市;Chengdu, Sichuan, China;|2158433
+达州市;Dazhou, Sichuan, China;|2619829
+德阳市;Deyang (德阳市), Sichuan, China;|2158436
+甘孜藏族自治州;Ganzi Zangzu, Sichuan, China;|2619832
+广元市;Guangyuan, Sichuan, China;|2619829
+广安市;Guang'an, Sichuan, China;|2619829
+资阳市;Ziyang, Sichuan, China;|2619820
+自贡市;Zigong (自贡市), Sichuan, China;|2158435
+林芝市;nyingchi, Tibet, China;|2619830
+拉萨市;Lhasa, Tibet, China;|2144789
+日喀则市;Rikaze, Tibet, China;|2619832
+山南;Shannan, Tibet, China;|2619823
+那曲;Heihe, Heilongjiang, China;|2141192
+阿里;NGQ - Ngari Gunsa Airport, Gar, Tibet, China;|5661797
+昌都;Changdu, Tibet, China;|2619831
+吐鲁番市;Tulufan, Xinjiang, China;|2619831
+乌鲁木齐市;Urumqi (乌鲁木齐市), Xinjiang, China;|2143692
+伊宁市;Yining (伊宁市), Xinjiang, China;|2143699
+阿图什市;Artux (阿图什市), Xinjiang, China;|2143790
+阿克苏市;Aksu, Xinjiang, China;|2143693
+昌吉市;Changji (昌吉市), Xinjiang, China;|2143694
+哈密市;Hami (哈密市), Xinjiang, China;|2143695
+和田市;Hotan (和田市), Xinjiang, China;|2143701
+库尔勒市;Korla (库尔勒市), Xinjiang, China;|2143697
+克拉玛依市;Karamay (克拉玛依市), Xinjiang, China;|2144016
+喀什市;Kashi (喀什市), Xinjiang, China;|2143696
+临沧市;Lincang, Yunnan, China;|2619832
+丽江市;Lijiang, Yunnan, China;|2619819
+昆明市;Kunming, Yunnan, China;|2160693
+曲靖市;Qujing (曲靖市), Yunnan, China;|2160699
+文山壮族苗族自治州;Wenshan Zhuangzu Miaozu, Yunnan, China;|2619818
+昭通市;Zhaotong (昭通市), Yunnan, China;|2160703
+玉溪市;Yuxi, Yunnan, China;|2619818
+怒江傈僳族自治州;Nujiang Lisuzu, Yunnan, China;|2619818
+保山市;Baoshan (保山市), Yunnan, China;|2160704
+楚雄市;Chuxiong (楚雄市), Yunnan, China;|2160696
+大理市;Dali, Yunnan, China;|2160695
+迪庆藏族自治州;Diqing Zangzu, Yunnan, China;|2619819
+个旧市;Gejiu, Yunnan, China;|2160694
+景洪市;Yunjinghong (景洪市), Yunnan, China;|2160652
+衢州市;Quzhou (衢州市), Hebei, China;|2171370
+丽水市;Yeosu (丽水市), Jeollanam-Do, South Korea;|1132596
+绍兴市;Shaoxing (绍兴市), Zhejiang, China;|2132581
+温州市;Wenzhou (温州市), Zhejiang, China;|2132582
+台州市;Taizhou, Zhejiang, China;|2619837
+宁波市;Ningbo (宁波市), Zhejiang, China;|2132579
+舟山市;Zhoushan (舟山市), Zhejiang, China;|2132498
+杭州市;Hangzhou, Zhejiang, China;|2132574
+湖州市;Huzhou (湖州市), Zhejiang, China;|2132575
+嘉兴市;Jiaxing (嘉兴市), Zhejiang, China;|2132577
+金华市;Jinhua (金华市), Zhejiang, China;|2132578
+石河子市;Shihezi (石河子市), Xinjiang, China;|2143698
+阿拉尔;Aral (阿拉尔), Qinghai, China;|2139133
+北京市;Beijing (北京市), Beijing, China;|2151330
+上海市;Shanghai (上海市), Shanghai, China;|2151849
+天津市;Tianjin (天津市), Tianjin, China;|2159908
+重庆市;Chongqing (重庆市), Chongqing, China;|2158434
+定安镇;Ding'an (定安镇), Guangxi, China;|2165616
+东方镇;Dongfang, Hainan, China;|2162810
+临高;Lingao (临高), Hainan, China;|2162791
+屯昌;Tunchang (屯昌), Hainan, China;|2162715
+万宁市;Wancheng, Hainan, China;|2162785
+文昌市;Wencheng (文昌市), Hainan, China;|2162793
+五指山市;Wuzhishan (五指山市), Hainan, China;|2025495
+济源市;Jiyuan, Henan, China;|2619837
+潜江市;Qianjiang (潜江市), Chongqing, China;|2158561
+神农架;Shennongjia (神农架), Hubei, China;|2163947
+天门市;Tianmen (天门市), Hubei, China;|2163882
+仙桃市;Xiantao (仙桃市), Hubei, China;|2163883
+凭祥;Pingxiang (凭祥), Guangxi, China;|2166533
+琼山;Qiongshan (琼山), Hainan, China;|2162834
+玉门市;Yumen (玉门市), Gansu, China;|2145617
+敦煌市;Dunhuang (敦煌市), Gansu, China;|2145159
+九龙;Kowloon City, Hong Kong;|2470313
+新界;DMA New Territories, Hong Kong;|2829847

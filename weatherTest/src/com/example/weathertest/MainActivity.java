@@ -1,12 +1,15 @@
 package com.example.weathertest;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 
+import org.apache.http.util.EncodingUtils;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
@@ -19,15 +22,65 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.MultiAutoCompleteTextView;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
+
+	MultiAutoCompleteTextView mauto;
+	String[] CityName = new String[] {};
+	String CityCode;
+	public String read_cc(String fileName,String cn) {    
+        try {  
+            InputStream in = getResources().getAssets().open(fileName); 
+            InputStreamReader read = new InputStreamReader (in,"UTF-8");  
+            BufferedReader br = new BufferedReader(read);
+            String tempLine;
+            while ((tempLine= br.readLine()) != null) {
+            	String[] tmpC=tempLine.split("\\|");
+            	String[] tmpcn=tmpC[0].split(";");
+            	System.out.println(tmpcn[0]);
+            	System.out.println(tmpcn[1]);
+            	if (cn.equals(tmpcn[0])|cn.equals(tmpcn[1])){
+            		CityCode = tmpC[1];
+            		return CityCode;
+            	}
+            }
+            
+        } catch (Exception e) {  
+            e.printStackTrace();  
+        }  
+        return null;  
+    }  
+	
+	public String read_cn(String fileName) {  
+        String res = "";  
+        try {  
+            InputStream in = getResources().getAssets().open(fileName);  
+            int length = in.available();  
+            byte[] buffer = new byte[length];  
+            in.read(buffer);  
+            res = EncodingUtils.getString(buffer, "UTF-8");  
+            CityName=res.split(";");
+            System.out.println(CityName);
+        } catch (Exception e) {  
+            e.printStackTrace();  
+        }  
+        return res;  
+    }  
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		read_cn("cityName.txt");
+		ArrayAdapter<String> aa = new ArrayAdapter<String>(this,
+				android.R.layout.simple_dropdown_item_1line, CityName);
+		mauto = (MultiAutoCompleteTextView) findViewById(R.id.MACTCityName);
+		mauto.setAdapter(aa);
+		mauto.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
 	}
 
 	@Override
@@ -49,20 +102,35 @@ public class MainActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+
 	StringBuilder www = new StringBuilder("");
+
 	public void clickHandler(View source) {
-		EditText cd = (EditText) findViewById(R.id.code);
-		String cc = String.valueOf(cd.getText());
-		getYHWinfo(cc);
+		EditText mactv = (EditText) findViewById(R.id.MACTCityName);
+		String cn = String.valueOf(mactv.getText());
+		System.out.println(cn);
+		getYHWinfo(read_cc("cityCode.txt",cn));
 		// ############################################
+		new Thread(new Runnable() {
+			public void run() {
+				try {
+					Thread.sleep(2000);
+					System.out.println("bbbb");
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				// handler.sendMessage(); //告诉主线程执行任务
+			}
+		}).start();
 		TextView wc = (TextView) findViewById(R.id.weatherCondition);
-		
-		
+
 		wc.setText(www.toString());
 	}
 
 	public void getYHWinfo(String cc) {
-		final String temp_url = "http://weather.yahooapis.com/forecastrss?w="+cc+"&u=c";
+		final String temp_url = "http://weather.yahooapis.com/forecastrss?w="
+				+ cc + "&u=c";
 		new Thread() {
 			@Override
 			public void run() {
@@ -76,37 +144,42 @@ public class MainActivity extends Activity {
 					con.setRequestProperty("user-agent",
 							"Mozilla/4.0(compatible;MSIE 6.0;Windows NT 5.1;SV1)");
 					con.connect();
-					XmlPullParser parser = XmlPullParserFactory.newInstance().newPullParser();
+					XmlPullParser parser = XmlPullParserFactory.newInstance()
+							.newPullParser();
 					parser.setInput(new InputStreamReader(con.getInputStream()));
-					
-					while(parser.getEventType()!=XmlResourceParser.END_DOCUMENT){
-						System.out.println("a");
-						if (parser.getEventType() == XmlResourceParser.START_TAG){
+
+					while (parser.getEventType() != XmlResourceParser.END_DOCUMENT) {
+						if (parser.getEventType() == XmlResourceParser.START_TAG) {
 							String tagName = parser.getName();
-							if(tagName.equals("yweather:location")){
-								String cityName = parser.getAttributeValue(null,"city");
-								String countryName = parser.getAttributeValue(null,"country");
+							if (tagName.equals("yweather:location")) {
+								String cityName = parser.getAttributeValue(
+										null, "city");
+								String countryName = parser.getAttributeValue(
+										null, "country");
 								www.append("city: ");
 								www.append(cityName);
 								www.append(",");
 								www.append(countryName);
 								www.append("\n");
 							}
-							if(tagName.equals("pubDate")){
+							if (tagName.equals("pubDate")) {
 								www.append("publishTime: ");
 								www.append("\n");
 								www.append(parser.nextText());
 								www.append("\n");
 							}
-							if(tagName.equals("yweather:condition")){
-								String condition = parser.getAttributeValue(null,"text");
-								String temperature = parser.getAttributeValue(null,"temp");
-								String date = parser.getAttributeValue(null,"date");
+							if (tagName.equals("yweather:condition")) {
+								String condition = parser.getAttributeValue(
+										null, "text");
+								String temperature = parser.getAttributeValue(
+										null, "temp");
+								String date = parser.getAttributeValue(null,
+										"date");
 								www.append("condition: ");
 								www.append(condition);
 								www.append("\n");
 								www.append("temperature: ");
-								www.append(temperature);
+								www.append(temperature + "\u2103");
 								www.append("\n");
 								www.append("date: ");
 								www.append(date);
@@ -114,16 +187,9 @@ public class MainActivity extends Activity {
 						}
 						parser.next();
 					}
-					
-//###############################################################################################
-					// Let's read the response
-//					StringBuffer buffer = new StringBuffer();
-//					is = con.getInputStream();
-//					BufferedReader br = new BufferedReader(
-//							new InputStreamReader(is));
-//					String line = null;
-//					while ((line = br.readLine()) != null)
-//						buffer.append(line + "\r\n");
+
+					// ###############################################################################################
+
 					System.out.println(www.toString());
 
 					System.out.println("compelet");
@@ -135,11 +201,6 @@ public class MainActivity extends Activity {
 		}.start();
 	}
 
-	public void xmlFig(InputStream is){
-		
-	}
-	
-	
 	private Handler handler = new Handler() {
 
 		public void handleMessage(Message msg) {
