@@ -30,9 +30,11 @@ import android.widget.TextView;
 public class MainActivity extends Activity {
 
 	MultiAutoCompleteTextView mauto;
-	String[] CityName = new String[] {};
+	String[] CityNameHint = new String[] {};
 	String CityCode;
-	public String read_cc(String fileName,String cn) {    
+	
+	
+	public String readtogetcitycode(String fileName,String cn) {    
         try {  
             InputStream in = getResources().getAssets().open(fileName); 
             InputStreamReader read = new InputStreamReader (in,"UTF-8");  
@@ -47,15 +49,14 @@ public class MainActivity extends Activity {
             		CityCode = tmpC[1];
             		return CityCode;
             	}
-            }
-            
+            }            
         } catch (Exception e) {  
             e.printStackTrace();  
         }  
         return null;  
     }  
 	
-	public String read_cn(String fileName) {  
+	public String readcityname(String fileName) {  
         String res = "";  
         try {  
             InputStream in = getResources().getAssets().open(fileName);  
@@ -63,21 +64,29 @@ public class MainActivity extends Activity {
             byte[] buffer = new byte[length];  
             in.read(buffer);  
             res = EncodingUtils.getString(buffer, "UTF-8");  
-            CityName=res.split(";");
-            System.out.println(CityName);
+            CityNameHint=res.split(";");
+            System.out.println(CityNameHint);
+//            InputStreamReader read = new InputStreamReader (in,"UTF-8");  
+//            BufferedReader br = new BufferedReader(read);
+//            String tempLine;
+//            while ((tempLine= br.readLine()) != null) {
+//            	res = tempLine.split(";");
+//            	CityNameHint = insert(CityNameHint,res[0]);
+//            	
+//            }
         } catch (Exception e) {  
             e.printStackTrace();  
         }  
-        return res;  
+        return null;  
     }  
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		read_cn("cityName.txt");
+		readcityname("cityName.txt");
 		ArrayAdapter<String> aa = new ArrayAdapter<String>(this,
-				android.R.layout.simple_dropdown_item_1line, CityName);
+				android.R.layout.simple_dropdown_item_1line, CityNameHint);
 		mauto = (MultiAutoCompleteTextView) findViewById(R.id.MACTCityName);
 		mauto.setAdapter(aa);
 		mauto.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
@@ -109,7 +118,7 @@ public class MainActivity extends Activity {
 		EditText mactv = (EditText) findViewById(R.id.MACTCityName);
 		String cn = String.valueOf(mactv.getText());
 		System.out.println(cn);
-		getYHWinfo(read_cc("cityCode.txt",cn));
+		getYHWinfo(readtogetcitycode("cityCode.txt",cn));
 		// ############################################
 		new Thread(new Runnable() {
 			public void run() {
