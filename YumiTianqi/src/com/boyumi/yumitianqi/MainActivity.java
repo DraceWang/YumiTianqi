@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Random;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -64,6 +65,7 @@ public class MainActivity extends Activity {
 		show();
 		showcron();
 		OnClickImage();
+		bugsComing();
 	}
 	
 	public void showcron(){
@@ -78,7 +80,11 @@ public class MainActivity extends Activity {
 		hv.setProgress(a.healthyValue);
 	}
 	
-
+	public void bugsComing(){
+		int p = new Random().nextInt(11);
+		if (p < 10)a.stauteChange(0, -3, -10);
+		showcron();
+	}
 	public Bitmap HandleImage(){
 		Resources res = getResources();
 		Bitmap bitmap = BitmapFactory.decodeResource(res,a.cronImage[a.getCronIconNum()]);

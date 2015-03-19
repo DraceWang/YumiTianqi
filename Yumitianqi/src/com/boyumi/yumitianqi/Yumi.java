@@ -22,9 +22,12 @@ public class Yumi {
 	}
 	
 	public void stauteChange(int g, int w, int h){
-		grownValue += g;
-		waterValue += w;
 		healthyValue += h;	
+		if(healthyValue <= 1){}
+		else{
+			grownValue += g;
+			}
+		waterValue += w;
 		grownValue = juge(200,grownValue);
 		waterValue = juge(50,waterValue);
 		healthyValue = juge(10,healthyValue);
