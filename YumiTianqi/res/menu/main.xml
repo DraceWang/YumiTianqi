@@ -1,7 +1,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.boyumi.yumitianqi.MainActivity" >
-
+	
+    <item
+        android:id="@+id/Addcity"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/Addcity"/>
     <item
         android:id="@+id/Refresh"
         android:orderInCategory="100"

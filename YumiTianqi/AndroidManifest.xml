@@ -25,6 +25,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".About" >
+            </activity>
+        <activity
+            android:name=".AddCity"
+            android:theme="@style/Theme.Translucent" >  
+            </activity>
+        <activity
+            android:name=".YahooWeather" >
+            </activity>
     </application>
 
 </manifest>

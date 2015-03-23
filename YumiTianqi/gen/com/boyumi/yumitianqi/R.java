@@ -32,49 +32,64 @@ public final class R {
         public static final int feiliao=0x7f020007;
         public static final int fog=0x7f020008;
         public static final int ic_launcher=0x7f020009;
-        public static final int mybar_gv=0x7f02000a;
-        public static final int mybar_hv=0x7f02000b;
-        public static final int mybar_wv=0x7f02000c;
-        public static final int rain=0x7f02000d;
-        public static final int snow=0x7f02000e;
-        public static final int snowrain=0x7f02000f;
-        public static final int sunny=0x7f020010;
-        public static final int sunnyrain=0x7f020011;
-        public static final int thunderstorm=0x7f020012;
-        public static final int water=0x7f020013;
-        public static final int wind=0x7f020014;
-        public static final int windrain=0x7f020015;
+        public static final int mybar=0x7f02000a;
+        public static final int mybar_gv=0x7f02000b;
+        public static final int mybar_hv=0x7f02000c;
+        public static final int mybar_wv=0x7f02000d;
+        public static final int rain=0x7f02000e;
+        public static final int snow=0x7f02000f;
+        public static final int snowrain=0x7f020010;
+        public static final int sunny=0x7f020011;
+        public static final int sunnyrain=0x7f020012;
+        public static final int themperature=0x7f020013;
+        public static final int thunderstorm=0x7f020014;
+        public static final int translucent_background=0x7f020019;
+        public static final int umbrella=0x7f020015;
+        public static final int water=0x7f020016;
+        public static final int wind=0x7f020017;
+        public static final int windrain=0x7f020018;
     }
     public static final class id {
-        public static final int About=0x7f080010;
-        public static final int CityName=0x7f080000;
-        public static final int Date=0x7f080004;
-        public static final int Exit=0x7f080011;
-        public static final int Refresh=0x7f08000f;
-        public static final int Temperature=0x7f080001;
-        public static final int WeatherCondition=0x7f080003;
-        public static final int WeatherIcon=0x7f080002;
-        public static final int cron=0x7f080005;
-        public static final int grown=0x7f08000c;
-        public static final int healty=0x7f08000e;
-        public static final int imageButton_bug=0x7f08000a;
-        public static final int imageButton_feiliao=0x7f08000b;
-        public static final int imageButton_water=0x7f080009;
-        public static final int progressBar_gv=0x7f080006;
-        public static final int progressBar_hv=0x7f080008;
-        public static final int progressBar_wv=0x7f080007;
-        public static final int water=0x7f08000d;
+        public static final int About=0x7f080018;
+        public static final int Addcity=0x7f080016;
+        public static final int CityName=0x7f080004;
+        public static final int Date=0x7f080008;
+        public static final int Exit=0x7f080019;
+        public static final int MACTCityName=0x7f080014;
+        public static final int Refresh=0x7f080017;
+        public static final int Temperature=0x7f080005;
+        public static final int WeatherCondition=0x7f080007;
+        public static final int WeatherIcon=0x7f080006;
+        public static final int button1=0x7f080015;
+        public static final int cron=0x7f080009;
+        public static final int grown=0x7f080010;
+        public static final int healty=0x7f080012;
+        public static final int imageButton_bug=0x7f08000e;
+        public static final int imageButton_feiliao=0x7f08000f;
+        public static final int imageButton_water=0x7f08000d;
+        public static final int ok=0x7f080013;
+        public static final int progressBar_gv=0x7f08000a;
+        public static final int progressBar_hv=0x7f08000c;
+        public static final int progressBar_wv=0x7f08000b;
+        public static final int ratingBar1=0x7f080003;
+        public static final int textView1=0x7f080000;
+        public static final int textView2=0x7f080002;
+        public static final int textView3=0x7f080001;
+        public static final int water=0x7f080011;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
+        public static final int about=0x7f030000;
+        public static final int activity_main=0x7f030001;
+        public static final int addcity=0x7f030002;
     }
     public static final class menu {
         public static final int main=0x7f070000;
     }
     public static final class string {
-        public static final int About=0x7f050002;
-        public static final int Exit=0x7f050003;
-        public static final int Refresh=0x7f050001;
+        public static final int About=0x7f050003;
+        public static final int Addcity=0x7f050001;
+        public static final int Exit=0x7f050004;
+        public static final int Refresh=0x7f050002;
         public static final int app_name=0x7f050000;
     }
     public static final class style {
@@ -104,5 +119,6 @@ public final class R {
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f060001;
+        public static final int Theme_Translucent=0x7f060002;
     }
 }
