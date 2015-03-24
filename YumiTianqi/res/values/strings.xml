@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Yumitianqi</string>
-     <string name="Addcity">Addcity</string>
-    <string name="Refresh">Refresh</string>
-    <string name="About">About</string>
-    <string name="Exit">Exit</string>
+    <string name="app_name">玉米天气</string>
+     <string name="Addcity">更换城市</string>
+    <string name="Refresh">刷新天气</string>
+    <string name="About">关于我们</string>
+    <string name="Exit">推出</string>
 
 </resources>

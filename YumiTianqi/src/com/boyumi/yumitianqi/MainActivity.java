@@ -30,7 +30,8 @@ public class MainActivity extends Activity {
 	
 	GPS g = new GPS();
 	
-	static String CityName = "o_O";
+	
+	static String CityName = null;
 	Weather w = new Weather();
 	static boolean isUpdate;
 	
@@ -50,13 +51,12 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		GPScontext = this;
-		if(firstRun){
+		if(firstRun&&(CityName==null)){
 			loadLastInfo();
 		}
 		showcron();
 		OnClickImage();
 		bugsComing();
-		waitingDialog();
 	}
 
 	
@@ -115,11 +115,12 @@ public class MainActivity extends Activity {
 	protected void onStart(){
 		context = this;
 		super.onStart();
-		if(firstRun){
+		waitingDialog();
+		if (CityName==null){
 			g.getGPSInfo(GPScontext);
 			CityName = g.getCityName();
+			w.getYahooWeather(context,CityName);
 		}
-		w.getYahooWeather(context,CityName);
 		System.out.println(w.WeatherCondition);
 		
 		refreshWeather();
@@ -231,6 +232,7 @@ public class MainActivity extends Activity {
 			return true;
 		}
 		if (id == R.id.Refresh) {
+			
 			w.getYahooWeather(context,CityName);
 			System.out.println("Done refresh!");
 			return true;
@@ -291,5 +293,6 @@ public class MainActivity extends Activity {
 					}
 				});
 			}
-		
+			
+			
 }

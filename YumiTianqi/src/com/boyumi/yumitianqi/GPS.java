@@ -7,21 +7,23 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.widget.Toast;
 
 public class GPS {
 
 	LocationManager lm;
 	String Longitude;
 	String Latitude;
-	String CityName = "";
-
-	
+	String CityName;
+	boolean GPSlocation = false;
 	// GPS location
+	@SuppressLint("ShowToast")
 	public void getGPSInfo(Context context) {
 		lm = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
 		Location locationGPS = lm
@@ -39,7 +41,8 @@ public class GPS {
 			updateLocation(locationPassive);
 		if (locationGPS == null && locationPassive == null
 				&& locationNetwork == null) {
-			System.out.println("无法获取定位信息");
+			GPSlocation = false;
+			Toast.makeText(context, "无法定位到您的位置", 50000).show();
 		}
 		lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 3000, 8,
 				new LocationListener() {
@@ -76,12 +79,14 @@ public class GPS {
 		if (newLocation != null) {
 			Longitude = String.valueOf(newLocation.getLongitude());
 			Latitude = String.valueOf(newLocation.getLatitude());
+			GPSlocation = true;
 			System.out.println("done get longitude and latitude!");
 		}
 	}
 
 	// get cityName from baiduAPI
 	public String getCityName() {
+		
 		 final String baiduAPI_url ="http://api.map.baidu.com/geocoder?output=json&location="+ Latitude+ "," + Longitude + "&key=eZnlziqWIf9hYIokB4a4D7Bo";
 //		final String baiduAPI_url = "http://api.map.baidu.com/geocoder?output=json&location=31.9377,118.6386&key=eZnlziqWIf9hYIokB4a4D7Bo";
 
@@ -118,4 +123,5 @@ public class GPS {
 		}
 		return CityName;
 	}
+	
 }
