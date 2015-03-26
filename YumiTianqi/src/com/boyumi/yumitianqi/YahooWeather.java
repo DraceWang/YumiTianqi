@@ -75,8 +75,9 @@ public class YahooWeather extends Activity {
 							}
 							parser.next();
 						}
+						if(Date!=null)MainActivity.UpdateWeather = true;
 					} catch (Exception e) {
-						System.out.println("error:" + e);
+						e.printStackTrace();
 					}
 				}
 			};
@@ -89,6 +90,7 @@ public class YahooWeather extends Activity {
 			}
 			if(Date==null){
 				Toast.makeText(context, "无法获取网络天气", 5000);
+				MainActivity.UpdateWeather = true;
 				return;
 			}
 		}
@@ -104,8 +106,8 @@ public class YahooWeather extends Activity {
 					String[] tmpcn = tmpC[0].split(";");
 					if (cn.equals(tmpcn[0]) | cn.equals(tmpcn[1])) {
 						String citycode = tmpC[1];
-						System.out.println(citycode+"find it!");
 						CityName = tmpcn[0];
+						System.out.println("CityCode find it!-----"+citycode);
 						return citycode;
 					}
 				}

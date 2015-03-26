@@ -20,8 +20,9 @@ public class GPS {
 	LocationManager lm;
 	String Longitude;
 	String Latitude;
-	String CityName;
+	String CityName = "";
 	boolean GPSlocation = false;
+	
 	// GPS location
 	@SuppressLint("ShowToast")
 	public void getGPSInfo(Context context) {
@@ -69,7 +70,6 @@ public class GPS {
 					public void onLocationChanged(Location location) {
 						// TODO Auto-generated method stub
 						updateLocation(location);
-						System.out.println(location);
 					}
 				});
 //		System.out.println(GPSlocation);
@@ -80,15 +80,13 @@ public class GPS {
 			Longitude = String.valueOf(newLocation.getLongitude());
 			Latitude = String.valueOf(newLocation.getLatitude());
 			GPSlocation = true;
-			System.out.println("done get longitude and latitude!");
+			System.out.println("getting longitude and latitude!---------Done!");
 		}
 	}
 
 	// get cityName from baiduAPI
 	public String getCityName() {
-		System.out.println("GPS____a");
 		if(!GPSlocation)return null;
-		System.out.println("GPS____b");
 		final String baiduAPI_url ="http://api.map.baidu.com/geocoder?output=json&location="+ Latitude+ "," + Longitude + "&key=eZnlziqWIf9hYIokB4a4D7Bo";
 //		final String baiduAPI_url = "http://api.map.baidu.com/geocoder?output=json&location=31.9377,118.6386&key=eZnlziqWIf9hYIokB4a4D7Bo";
 
@@ -108,7 +106,7 @@ public class GPS {
 							.getJSONObject("result")
 							.getJSONObject("addressComponent")
 							.getString("city");
-					System.out.println("GPS:"+CityName);
+					System.out.println("GPS_CityName:"+CityName);
 				} catch (JSONException e) {
 					e.printStackTrace();
 				} catch (Exception e) {

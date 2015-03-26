@@ -4,11 +4,11 @@ import android.content.Context;
 
 public class Weather {
 	
-	String CityCode;
+	String CityCode = "";
 	String WeatherCondition = "水生火热(→_→)";
-	String Temperature = "  爆表啦(--)#";
+	String Temperature = "—— ——"+"\u2103";
 	String Date;
-	int WeatherCode;
+	int WeatherCode = 99;
 	
 	
 	int weather;
@@ -23,11 +23,6 @@ public class Weather {
 		Temperature = y.Temperature;
 		Date = y.Date;
 		WeatherCode = y.WeatherCode;
-		MainActivity.isUpdate = true;
-		
-		System.out.println(CityCode);
-		System.out.println(Temperature);
-		System.out.println(Date);
 	}
 	
 	public int comfireYahooWeatherIcon(){

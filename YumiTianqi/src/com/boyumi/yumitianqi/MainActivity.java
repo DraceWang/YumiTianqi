@@ -34,7 +34,7 @@ public class MainActivity extends Activity {
 
 	static String CityName = null;
 	Weather w = new Weather();
-	static boolean isUpdate = false;
+	static boolean UpdateWeather = false;
 
 	ImageView c;
 
@@ -51,91 +51,26 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		GPScontext = this;
-		if (haveData) {
-			loadLastInfo();
-		}
-
-	}
-
-	public void waitingDialog() {
-
-		pd = new ProgressDialog(this);
-		// pd.show(this, "请稍等", "正在从服务器获取天气信息",false,true);
-		pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-		pd.setTitle("请稍等");
-		pd.setMessage("正在从服务器获取天气信息");
-		pd.show();
-		new Thread() {
-			public void run() {
-				while (!isUpdate) {
-					try {
-						Thread.sleep(1000);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				}
-				pd.dismiss();
-			}
-		}.start();
-	}
-
-	public void showcron() {
+		g.getGPSInfo(GPScontext);
+		CityName = g.getCityName();
+		refreshWeatherdisplay();
 		c = (ImageView) findViewById(R.id.cron);
-		// c.setImageResource(a.cronImage[a.getCronIconNum()]);
-		c.setImageBitmap(HandleImage());
-		ProgressBar gv = (ProgressBar) findViewById(R.id.progressBar_gv);
-		gv.setProgress(a.grownValue);
-		ProgressBar wv = (ProgressBar) findViewById(R.id.progressBar_wv);
-		wv.setProgress(a.waterValue);
-		ProgressBar hv = (ProgressBar) findViewById(R.id.progressBar_hv);
-		hv.setProgress(a.healthyValue);
-	}
-
-	public void bugsComing() {
-		int p = new Random().nextInt(11);
-		if (p < 1)
-			a.stauteChange(0, -3, -10);
-		showcron();
-	}
-
-	public Bitmap HandleImage() {
-		Resources res = getResources();
-		Bitmap bitmap = BitmapFactory.decodeResource(res,
-				a.cronImage[a.getCronIconNum()]);
-		Matrix matrix = new Matrix();
-		float scale = (float) (40 + a.grownValue * 0.3) / 100;
-		matrix.setScale(scale, scale);
-		Bitmap resizeBmp = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(),
-				bitmap.getHeight(), matrix, true);
-		return resizeBmp;
+		c.setImageResource(R.drawable.cron);
 	}
 
 	@Override
 	protected void onStart() {
 		context = this;
 		super.onStart();
-		if (haveData) {
-		} else {
-			if (firstRun) {
-				waitingDialog();
-				g.getGPSInfo(GPScontext);
-//				CityName = "南京市";
-				CityName = g.getCityName();
-				w.getYahooWeather(context, CityName);
-				refreshWeatherdisplay();
-			}
-			else{
-				loadLastInfo();
-			}
+		if (!haveData) {
+			waitingDialog();
+			w.getYahooWeather(context, CityName);
 			refreshWeatherdisplay();
-			System.out.println(w.WeatherCondition);
-			isUpdate = false;
-
-			showcron();
-			OnClickImage();
-			bugsComing();
 		}
+		showcron();
+		OnClickImage();
+		bugsComing();
+		
 	}
 
 	@Override
@@ -147,17 +82,18 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onRestart() {
 		super.onRestart();
+		loadLastInfo();
 	}
-	
+
 	@Override
 	protected void onResume() {
 		super.onResume();
 		System.out.println("this is in Resume");
-		showcron();
-		OnClickImage();
-		bugsComing();
+		if (haveData){
+			loadLastInfo();
+		}
 	}
-	
+
 	@Override
 	protected void onStop() {
 		super.onStop();
@@ -181,6 +117,11 @@ public class MainActivity extends Activity {
 			ps.close();
 			System.out.println("WeatherInfo saved!");
 			haveData = true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		try {
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -215,11 +156,9 @@ public class MainActivity extends Activity {
 	}
 
 	public void refreshWeatherdisplay() {
-		isUpdate = true;
 		int i = w.comfireYahooWeatherIcon();
 		ImageButton wi = (ImageButton) findViewById(R.id.WeatherIcon);
 		wi.setBackgroundResource(w.icons[i]);
-		System.out.println("finish");
 		TextView cn = (TextView) findViewById(R.id.CityName);
 		cn.setText(CityName);
 		TextView wc = (TextView) findViewById(R.id.WeatherCondition);
@@ -228,6 +167,7 @@ public class MainActivity extends Activity {
 		t.setText(w.Temperature);
 		TextView d = (TextView) findViewById(R.id.Date);
 		d.setText(w.Date);
+		System.out.println("refresh Weather Display Done!");
 	}
 
 	@Override
@@ -282,7 +222,7 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				if (CityName == null){
+				if (CityName == null) {
 					CityName = g.getCityName();
 				}
 				waitingDialog();
@@ -320,6 +260,59 @@ public class MainActivity extends Activity {
 				showcron();
 			}
 		});
+	}
+
+	public void waitingDialog() {
+
+		pd = new ProgressDialog(this);
+		pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+		pd.setTitle("请稍等");
+		pd.setMessage("正在从服务器获取天气信息");
+		pd.show();
+		new Thread() {
+			public void run() {
+				while (!UpdateWeather) {
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				pd.dismiss();
+			}
+		}.start();
+	}
+
+	public void showcron() {
+		c = (ImageView) findViewById(R.id.cron);
+		// c.setImageResource(a.cronImage[a.getCronIconNum()]);
+		c.setImageBitmap(HandleImage());
+		ProgressBar gv = (ProgressBar) findViewById(R.id.progressBar_gv);
+		gv.setProgress(a.grownValue);
+		ProgressBar wv = (ProgressBar) findViewById(R.id.progressBar_wv);
+		wv.setProgress(a.waterValue);
+		ProgressBar hv = (ProgressBar) findViewById(R.id.progressBar_hv);
+		hv.setProgress(a.healthyValue);
+	}
+
+	public void bugsComing() {
+		int p = new Random().nextInt(11);
+		if (p < 1)
+			a.stauteChange(0, -3, -10);
+		showcron();
+	}
+
+	public Bitmap HandleImage() {
+		Resources res = getResources();
+		Bitmap bitmap = BitmapFactory.decodeResource(res,
+				a.cronImage[a.getCronIconNum()]);
+		Matrix matrix = new Matrix();
+		float scale = (float) (40 + a.grownValue * 0.3) / 100;
+		matrix.setScale(scale, scale);
+		Bitmap resizeBmp = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(),
+				bitmap.getHeight(), matrix, true);
+		return resizeBmp;
 	}
 
 }
