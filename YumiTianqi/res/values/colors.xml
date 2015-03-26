@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <drawable name = "translucent_background">#60000000</drawable>
+    <drawable name = "translucent_background">#352d2c2c</drawable>
 </resources>

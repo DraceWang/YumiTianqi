@@ -31,6 +31,7 @@ public class MainActivity extends Activity {
 	static boolean haveData = false;
 
 	GPS g = new GPS();
+	static String GPSCityName;
 
 	static String CityName = null;
 	Weather w = new Weather();
@@ -41,7 +42,7 @@ public class MainActivity extends Activity {
 	Yumi a = new Yumi();
 
 	ProgressDialog pd;
-	static boolean firstRun = true;
+	static boolean CityNameChanged = false;
 
 	Context context;
 	Context GPScontext;
@@ -50,9 +51,12 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		System.out.println("this is in onCreate");
+//		refreshWeatherdisplay();
 		GPScontext = this;
 		g.getGPSInfo(GPScontext);
-		CityName = g.getCityName();
+		GPSCityName = g.getCityName();
+		if(!CityNameChanged)CityName = g.getCityName();
 		refreshWeatherdisplay();
 		c = (ImageView) findViewById(R.id.cron);
 		c.setImageResource(R.drawable.cron);
@@ -62,7 +66,13 @@ public class MainActivity extends Activity {
 	protected void onStart() {
 		context = this;
 		super.onStart();
+		System.out.println("this is in onStart");
 		if (!haveData) {
+			waitingDialog();
+			w.getYahooWeather(context, CityName);
+			refreshWeatherdisplay();
+		}
+		if(CityNameChanged){
 			waitingDialog();
 			w.getYahooWeather(context, CityName);
 			refreshWeatherdisplay();
@@ -89,9 +99,14 @@ public class MainActivity extends Activity {
 	protected void onResume() {
 		super.onResume();
 		System.out.println("this is in Resume");
+		if(CityNameChanged){
+			w.getYahooWeather(GPScontext, CityName);
+			refreshWeatherdisplay();
+			return;
+		}
 		if (haveData){
 			loadLastInfo();
-		}
+		}		
 	}
 
 	@Override
@@ -125,7 +140,6 @@ public class MainActivity extends Activity {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		firstRun = false;
 	}
 
 	@SuppressLint("ShowToast")
@@ -167,7 +181,7 @@ public class MainActivity extends Activity {
 		t.setText(w.Temperature);
 		TextView d = (TextView) findViewById(R.id.Date);
 		d.setText(w.Date);
-		System.out.println("refresh Weather Display Done!");
+		System.out.println("refresh Weather Display--------Done!");
 	}
 
 	@Override
@@ -186,9 +200,7 @@ public class MainActivity extends Activity {
 		if (id == R.id.Addcity) {
 			Intent intent = new Intent(MainActivity.this, AddCity.class);
 			startActivity(intent);
-			waitingDialog();
-			w.getYahooWeather(context, CityName);
-			refreshWeatherdisplay();
+//			finish();
 			return true;
 		}
 		if (id == R.id.Refresh) {
@@ -197,7 +209,6 @@ public class MainActivity extends Activity {
 			waitingDialog();
 			w.getYahooWeather(context, CityName);
 			refreshWeatherdisplay();
-			System.out.println("Done refresh!");
 			return true;
 		}
 		if (id == R.id.About) {

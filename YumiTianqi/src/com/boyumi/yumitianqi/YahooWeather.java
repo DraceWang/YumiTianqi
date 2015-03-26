@@ -93,6 +93,7 @@ public class YahooWeather extends Activity {
 				MainActivity.UpdateWeather = true;
 				return;
 			}
+			System.out.println("pulling Weather -----Done");
 		}
 
 		public String getcitycode(Context context,String fileName, String cn) {

@@ -5,7 +5,6 @@ import java.io.InputStream;
 import org.apache.http.util.EncodingUtils;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -24,7 +23,7 @@ public class AddCity extends Activity {
 		setContentView(R.layout.addcity);
 		findCityName();
 		TextView Gcn = (TextView) findViewById(R.id.GPScityname);
-		Gcn.setText(MainActivity.CityName);
+		Gcn.setText(MainActivity.GPSCityName);
 		ArrayAdapter<String> aa = new ArrayAdapter<String>(this,
 				android.R.layout.simple_dropdown_item_1line, CityNameHint);
 		mauto = (MultiAutoCompleteTextView) findViewById(R.id.MACTCityName);
@@ -48,10 +47,10 @@ public class AddCity extends Activity {
 	public void clickHandle(View source){
 		EditText cn = (EditText) findViewById(R.id.MACTCityName);
 		MainActivity.CityName = String.valueOf(cn.getText());
-		MainActivity.firstRun = false;
-		Intent intent = new Intent(this,
-				MainActivity.class);
-		startActivity(intent);
+		MainActivity.CityNameChanged = true;
+//		Intent intent = new Intent(this,
+//				MainActivity.class);
+//		startActivity(intent);
 		finish();
 	}
 	
