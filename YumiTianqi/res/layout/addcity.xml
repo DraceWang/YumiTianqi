@@ -19,18 +19,17 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textView2"
-        android:layout_marginTop="41dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="请输入城市内名称或拼音" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/GPScityname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/MACTCityName"
-        android:layout_alignLeft="@+id/button1"
+        android:layout_toRightOf="@+id/textView2"
         android:layout_marginLeft="37dp"
-        android:text="Medium Text"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
@@ -40,7 +39,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="18dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="40dp"
         android:text="当前定位城市："
         android:textAppearance="?android:attr/textAppearanceMedium" />
 

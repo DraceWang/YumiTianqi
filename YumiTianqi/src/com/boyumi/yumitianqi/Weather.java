@@ -4,7 +4,6 @@ import android.content.Context;
 
 public class Weather {
 	
-	String CityName;
 	String CityCode;
 	String WeatherCondition = "水生火热(→_→)";
 	String Temperature = "  爆表啦(--)#";
@@ -19,15 +18,14 @@ public class Weather {
 		YahooWeather y = new YahooWeather();
 		y.getWeather(context,cityname);
 		CityCode = y.CityCode;
-		CityName = y.CityName;
+		MainActivity.CityName = y.CityName;
 		WeatherCondition = y.WeatherCondition;
 		Temperature = y.Temperature;
 		Date = y.Date;
 		WeatherCode = y.WeatherCode;
+		MainActivity.isUpdate = true;
 		
-		System.out.println(CityName);
 		System.out.println(CityCode);
-		
 		System.out.println(Temperature);
 		System.out.println(Date);
 	}

@@ -5,6 +5,6 @@
      <string name="Addcity">更换城市</string>
     <string name="Refresh">刷新天气</string>
     <string name="About">关于我们</string>
-    <string name="Exit">推出</string>
+    <string name="Exit">退出</string>
 
 </resources>

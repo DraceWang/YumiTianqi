@@ -72,7 +72,7 @@ public class GPS {
 						System.out.println(location);
 					}
 				});
-
+//		System.out.println(GPSlocation);
 	}
 
 	public void updateLocation(Location newLocation) {
@@ -86,8 +86,10 @@ public class GPS {
 
 	// get cityName from baiduAPI
 	public String getCityName() {
-		
-		 final String baiduAPI_url ="http://api.map.baidu.com/geocoder?output=json&location="+ Latitude+ "," + Longitude + "&key=eZnlziqWIf9hYIokB4a4D7Bo";
+		System.out.println("GPS____a");
+		if(!GPSlocation)return null;
+		System.out.println("GPS____b");
+		final String baiduAPI_url ="http://api.map.baidu.com/geocoder?output=json&location="+ Latitude+ "," + Longitude + "&key=eZnlziqWIf9hYIokB4a4D7Bo";
 //		final String baiduAPI_url = "http://api.map.baidu.com/geocoder?output=json&location=31.9377,118.6386&key=eZnlziqWIf9hYIokB4a4D7Bo";
 
 		Thread gcn = new Thread() {

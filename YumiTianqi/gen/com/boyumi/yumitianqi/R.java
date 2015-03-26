@@ -55,12 +55,12 @@ public final class R {
         public static final int CityName=0x7f080004;
         public static final int Date=0x7f080008;
         public static final int Exit=0x7f080019;
+        public static final int GPScityname=0x7f080015;
         public static final int MACTCityName=0x7f080014;
         public static final int Refresh=0x7f080017;
         public static final int Temperature=0x7f080005;
         public static final int WeatherCondition=0x7f080007;
         public static final int WeatherIcon=0x7f080006;
-        public static final int button1=0x7f080015;
         public static final int cron=0x7f080009;
         public static final int grown=0x7f080010;
         public static final int healty=0x7f080012;

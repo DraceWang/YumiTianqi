@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.MultiAutoCompleteTextView;
+import android.widget.TextView;
 
 public class AddCity extends Activity {
 	
@@ -22,6 +23,8 @@ public class AddCity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.addcity);
 		findCityName();
+		TextView Gcn = (TextView) findViewById(R.id.GPScityname);
+		Gcn.setText(MainActivity.CityName);
 		ArrayAdapter<String> aa = new ArrayAdapter<String>(this,
 				android.R.layout.simple_dropdown_item_1line, CityNameHint);
 		mauto = (MultiAutoCompleteTextView) findViewById(R.id.MACTCityName);
@@ -44,11 +47,13 @@ public class AddCity extends Activity {
 	}
 	public void clickHandle(View source){
 		EditText cn = (EditText) findViewById(R.id.MACTCityName);
-		MainActivity.CityName =String.valueOf(cn.getText());
+		MainActivity.CityName = String.valueOf(cn.getText());
 		MainActivity.firstRun = false;
 		Intent intent = new Intent(this,
 				MainActivity.class);
 		startActivity(intent);
 		finish();
 	}
+	
+	
 }

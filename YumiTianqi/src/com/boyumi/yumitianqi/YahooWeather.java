@@ -9,22 +9,32 @@ import java.net.URLConnection;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.XmlResourceParser;
+import android.widget.Toast;
 
 public class YahooWeather extends Activity {
 	
 	String CityCode;
-	String WeatherCondition = "水生火热(→_→)";
-	String Temperature = "  爆表啦(--)#";
-	String Date;
+	String WeatherCondition;
+	String Temperature;
+	String Date = null;
 	String CityName;
 	int WeatherCode;
 	
 	
 	// get weather from yahoo
+		@SuppressLint("ShowToast")
 		public void getWeather(Context context,String CityName) {
+			if(CityName == null){
+				CityName = null;
+				Temperature = "—— ——"+"\u2103";
+				WeatherCode = 99;
+				System.out.println("这里应该出去了");
+				return;
+			}
 			CityCode = getcitycode(context,"cityCode.txt", CityName);
 			final String temp_url = "http://weather.yahooapis.com/forecastrss?w="
 					+ CityCode + "&u=c";
@@ -77,7 +87,10 @@ public class YahooWeather extends Activity {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			MainActivity.isUpdate = true;
+			if(Date==null){
+				Toast.makeText(context, "无法获取网络天气", 5000);
+				return;
+			}
 		}
 
 		public String getcitycode(Context context,String fileName, String cn) {
