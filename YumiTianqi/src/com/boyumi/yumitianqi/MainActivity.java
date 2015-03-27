@@ -1,10 +1,5 @@
 package com.boyumi.yumitianqi;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStreamReader;
-import java.io.PrintStream;
 import java.util.Random;
 
 import android.annotation.SuppressLint;
@@ -13,6 +8,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -28,38 +24,37 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
-	//local data
+	// local data
 	static boolean haveData = false;
 	SharedPreferences sp;
-	//GPS
+	// GPS
 	GPS g = new GPS();
 	static String GPSCityName;
-	//Weather Info
+	// Weather Info
 	static String CityName = null;
 	Weather w = new Weather();
 	static boolean UpdateWeather = false;
-	//corn
+	// corn
 	ImageView c;
 	Yumi a = new Yumi();
-	//dialog
+	// dialog
 	ProgressDialog pd;
 	static boolean CityNameChanged = false;
-	//context
+	// context
 	Context context;
 	Context GPScontext;
 
-	
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		System.out.println("this is in onCreate");
-//		refreshWeatherdisplay();
+		// refreshWeatherdisplay();
 		GPScontext = this;
 		g.getGPSInfo(GPScontext);
 		GPSCityName = g.getCityName();
-		if(!CityNameChanged)CityName = g.getCityName();
+		if (!CityNameChanged)
+			CityName = g.getCityName();
 		refreshWeatherdisplay();
 		c = (ImageView) findViewById(R.id.cron);
 		c.setImageResource(R.drawable.cron);
@@ -75,7 +70,7 @@ public class MainActivity extends Activity {
 			w.getYahooWeather(context, CityName);
 			refreshWeatherdisplay();
 		}
-		if(CityNameChanged){
+		if (CityNameChanged) {
 			waitingDialog();
 			w.getYahooWeather(context, CityName);
 			refreshWeatherdisplay();
@@ -83,7 +78,7 @@ public class MainActivity extends Activity {
 		showcron();
 		OnClickImage();
 		bugsComing();
-		
+
 	}
 
 	@Override
@@ -102,14 +97,14 @@ public class MainActivity extends Activity {
 	protected void onResume() {
 		super.onResume();
 		System.out.println("this is in Resume");
-		if(CityNameChanged){
+		if (CityNameChanged) {
 			w.getYahooWeather(GPScontext, CityName);
 			refreshWeatherdisplay();
 			return;
 		}
-		if (haveData){
+		if (haveData) {
 			loadLastInfo();
-		}		
+		}
 	}
 
 	@Override
@@ -121,54 +116,67 @@ public class MainActivity extends Activity {
 	public void writeWeatherInfo() {
 		if (CityName == null)
 			return;
-//		try {
-//			deleteFile("lastWeatherInfo.txt");
-//			FileOutputStream fos = openFileOutput("lastWeatherInfo.txt",
-//					MODE_APPEND);
-//			PrintStream ps = new PrintStream(fos);
-//			ps.println("CityName:" + CityName);
-//			ps.println("Temperature:" + w.Temperature);
-//			ps.println("WeatherCode:" + w.WeatherCode);
-//			ps.println("WeatherCondition:" + w.WeatherCondition);
-//			ps.println("Date:" + w.Date);
-//			System.out.println("WeatherInfo saved!");
-//			ps.close();
-//			System.out.println("WeatherInfo saved!");
-//			haveData = true;
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-		try {
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		// try {
+		// deleteFile("lastWeatherInfo.txt");
+		// FileOutputStream fos = openFileOutput("lastWeatherInfo.txt",
+		// MODE_APPEND);
+		// PrintStream ps = new PrintStream(fos);
+		// ps.println("CityName:" + CityName);
+		// ps.println("Temperature:" + w.Temperature);
+		// ps.println("WeatherCode:" + w.WeatherCode);
+		// ps.println("WeatherCondition:" + w.WeatherCondition);
+		// ps.println("Date:" + w.Date);
+		// System.out.println("WeatherInfo saved!");
+		// ps.close();
+		// System.out.println("WeatherInfo saved!");
+		// haveData = true;
+		// } catch (Exception e) {
+		// e.printStackTrace();
+		// }
+
+		sp = getSharedPreferences("localWeatherData", MODE_PRIVATE);
+		Editor editor = sp.edit();
+		editor.putString("CityName", CityName);
+		editor.putString("Temperature", w.Temperature);
+		editor.putInt("WeatherCode", w.WeatherCode);
+		editor.putString("WeatherCondition", w.WeatherCondition);
+		editor.putString("Date", w.Date);
+		editor.commit();
+		System.out.println("WeatherInfo saved!");
+		haveData = true;
 	}
 
 	@SuppressLint("ShowToast")
 	public void loadLastInfo() {
 		System.out.println("loading last WeatherInfo");
-		try {
-			FileInputStream fis = openFileInput("lastWeatherInfo.txt");
-			InputStreamReader read = new InputStreamReader(fis, "UTF-8");
-			BufferedReader br = new BufferedReader(read);
-			String[] tmp;
-			tmp = br.readLine().split(":");
-			CityName = tmp[1];
-			tmp = br.readLine().split(":");
-			w.Temperature = tmp[1];
-			tmp = br.readLine().split(":");
-			w.WeatherCode = Integer.valueOf(tmp[1]);
-			tmp = br.readLine().split(":");
-			w.WeatherCondition = tmp[1];
-			tmp = br.readLine().split(":");
-			w.Date = tmp[1];
-			br.close();
-			fis.close();
-			System.out.println("loading last WeatherInfo, Done!");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+//		try {
+//			FileInputStream fis = openFileInput("lastWeatherInfo.txt");
+//			InputStreamReader read = new InputStreamReader(fis, "UTF-8");
+//			BufferedReader br = new BufferedReader(read);
+//			String[] tmp;
+//			tmp = br.readLine().split(":");
+//			CityName = tmp[1];
+//			tmp = br.readLine().split(":");
+//			w.Temperature = tmp[1];
+//			tmp = br.readLine().split(":");
+//			w.WeatherCode = Integer.valueOf(tmp[1]);
+//			tmp = br.readLine().split(":");
+//			w.WeatherCondition = tmp[1];
+//			tmp = br.readLine().split(":");
+//			w.Date = tmp[1];
+//			br.close();
+//			fis.close();
+//			System.out.println("loading last WeatherInfo, Done!");
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+		
+		CityName = sp.getString("CityName", null);
+		w.Temperature = sp.getString("Temperature", null);
+		w.WeatherCode = sp.getInt("WeatherCode", 99);
+		w.WeatherCondition = sp.getString("WeatherCondition", null);
+		w.Date = sp.getString("Date", null);
+		
 		refreshWeatherdisplay();
 	}
 
@@ -203,7 +211,7 @@ public class MainActivity extends Activity {
 		if (id == R.id.Addcity) {
 			Intent intent = new Intent(MainActivity.this, AddCity.class);
 			startActivity(intent);
-//			finish();
+			// finish();
 			return true;
 		}
 		if (id == R.id.Refresh) {
