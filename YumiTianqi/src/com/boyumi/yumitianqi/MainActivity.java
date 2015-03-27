@@ -12,6 +12,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -27,26 +28,28 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
-
+	//local data
 	static boolean haveData = false;
-
+	SharedPreferences sp;
+	//GPS
 	GPS g = new GPS();
 	static String GPSCityName;
-
+	//Weather Info
 	static String CityName = null;
 	Weather w = new Weather();
 	static boolean UpdateWeather = false;
-
+	//corn
 	ImageView c;
-
 	Yumi a = new Yumi();
-
+	//dialog
 	ProgressDialog pd;
 	static boolean CityNameChanged = false;
-
+	//context
 	Context context;
 	Context GPScontext;
 
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -118,25 +121,25 @@ public class MainActivity extends Activity {
 	public void writeWeatherInfo() {
 		if (CityName == null)
 			return;
+//		try {
+//			deleteFile("lastWeatherInfo.txt");
+//			FileOutputStream fos = openFileOutput("lastWeatherInfo.txt",
+//					MODE_APPEND);
+//			PrintStream ps = new PrintStream(fos);
+//			ps.println("CityName:" + CityName);
+//			ps.println("Temperature:" + w.Temperature);
+//			ps.println("WeatherCode:" + w.WeatherCode);
+//			ps.println("WeatherCondition:" + w.WeatherCondition);
+//			ps.println("Date:" + w.Date);
+//			System.out.println("WeatherInfo saved!");
+//			ps.close();
+//			System.out.println("WeatherInfo saved!");
+//			haveData = true;
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 		try {
-			deleteFile("lastWeatherInfo.txt");
-			FileOutputStream fos = openFileOutput("lastWeatherInfo.txt",
-					MODE_APPEND);
-			PrintStream ps = new PrintStream(fos);
-			ps.println("CityName:" + CityName);
-			ps.println("Temperature:" + w.Temperature);
-			ps.println("WeatherCode:" + w.WeatherCode);
-			ps.println("WeatherCondition:" + w.WeatherCondition);
-			ps.println("Date:" + w.Date);
-			System.out.println("WeatherInfo saved!");
-			ps.close();
-			System.out.println("WeatherInfo saved!");
-			haveData = true;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		try {
-
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
