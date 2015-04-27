@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;YumiTianqi&apos;&#x0D;&#x0A;- Original project: &apos;YumiTianqi&apos;&#x0D;&#x0A;- Original element: &apos;weather_icon&apos;" description="Delete element" element1="res/drawable-mdpi/weather_icon" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="1" stamp="1429869163815" subPackages="false" version="1.0"/>
+</session>
