@@ -1,0 +1,93 @@
+package com.boyumi.yumitianqi;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import android.content.Context;
+
+public class BaiduWeather implements Weather{
+	
+	private String CityName;
+	private String WeatherCondition;
+	private String Temperature;
+	private String Date;
+	private Context context;
+	private List<Map<String, Object>> ForecastList = new ArrayList<Map<String, Object>>();
+	private int[] weatherIcon = new int[]{
+			R.drawable.windrain,
+			R.drawable.thunderstorm,
+			R.drawable.snowrain,
+			R.drawable.rain,
+			R.drawable.snow,
+			R.drawable.fog,
+			R.drawable.wind,
+			R.drawable.cloudy,
+			R.drawable.sunny,
+	};
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@Override
+	public void getWeather() {
+		// TODO Auto-generated method stub
+		if (CityName == null) {
+			System.out.println("error:" + "didn't get a cityname!!");
+			return;
+		}
+		final String baidu_url = "http://api.map.baidu.com/telematics/v3/weather?location="+getCityName()+"&output=xml&ak=EN4ewH1NIOaaQcivD4d7UeL7&mcode=54:97:14:2A:47:69:A5:FB:2E:77:65:D5:A7:CB:53:A4:5A:66:D6:67";
+	}
+	
+
+	/**
+	 * geter and seter
+	 */
+	public String getCityName() {
+		return CityName;
+	}
+	public void setCityName(String cityName) {
+		CityName = cityName;
+	}
+	public String getWeatherCondition() {
+		return WeatherCondition;
+	}
+	public void setWeatherCondition(String weatherCondition) {
+		WeatherCondition = weatherCondition;
+	}
+	public String getTemperature() {
+		return Temperature;
+	}
+	public void setTemperature(String temperature) {
+		Temperature = temperature;
+	}
+	public String getDate() {
+		return Date;
+	}
+	public void setDate(String date) {
+		Date = date;
+	}
+	public Context getContext() {
+		return context;
+	}
+	public void setContext(Context context) {
+		this.context = context;
+	}
+	public List<Map<String, Object>> getForecastList() {
+		return ForecastList;
+	}
+	public void setForecastList(List<Map<String, Object>> forecastList) {
+		ForecastList = forecastList;
+	}
+	
+	@Override
+	public int getWeatherIconNum() {
+		// TODO Auto-generated method stub
+		return ;
+	}
+}

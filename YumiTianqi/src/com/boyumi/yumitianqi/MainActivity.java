@@ -1,5 +1,7 @@
 package com.boyumi.yumitianqi;
 
+import java.util.ArrayList;
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
@@ -57,17 +59,8 @@ public class MainActivity extends Activity implements
 	}
 
 	public void onSectionAttached(int number) {
-		switch (number) {
-		case 1:
-			mTitle = getString(R.string.title_section1);
-			break;
-		case 2:
-			mTitle = getString(R.string.title_section2);
-			break;
-		case 3:
-			mTitle = getString(R.string.title_section3);
-			break;
-		}
+		ArrayList<String> tittlelist = NavigationDrawerFragment.getNavList();
+		mTitle = tittlelist.get(number-1);
 	}
 
 	@SuppressWarnings("deprecation")
@@ -136,15 +129,19 @@ public class MainActivity extends Activity implements
 			if (pageNum == 0) {
 				View rootView = inflater.inflate(R.layout.fragment_main,
 						container, false);
-				YahooWeather y = new YahooWeather(rootView.getContext(), "南京市");
-				y.getWeather();
+				//初始化天气并获取天气信息，考虑改成百度天气
+//				Weather y = new YahooWeather(rootView, "南京市");
+//				Weather y = new BaiduWeather(rootView, "南京市");
+				Weather y = new JuheWeather(rootView,NavigationDrawerFragment.getNavList().get(0));
+				//玉米的显示考虑在哪里初始化,最好别在这
+				Cron c = new Cron(y, rootView);
+				c.bugsComing();
 				freshWeatherView(rootView, y);
 				return rootView;
 			} else {
 				View rootView = inflater.inflate(R.layout.fragment_othercity,
 						container, false);
-				YahooWeather y = new YahooWeather(rootView.getContext(), "南京市");
-				y.getWeather();
+				Weather y = new JuheWeather(rootView,NavigationDrawerFragment.getNavList().get(pageNum));
 				freshWeatherView(rootView, y);
 				return rootView;
 			}
@@ -157,7 +154,7 @@ public class MainActivity extends Activity implements
 					ARG_SECTION_NUMBER));
 		}
 
-		public void freshWeatherView(View view, YahooWeather y) {
+		public void freshWeatherView(View view, Weather y) {
 			TextView cityname = (TextView) view.findViewById(R.id.CityName);
 			cityname.setText(y.getCityName());
 			TextView temperatrue = (TextView) view
@@ -165,7 +162,11 @@ public class MainActivity extends Activity implements
 			temperatrue.setText(y.getTemperature());
 			ImageView weathericon = (ImageView) view
 					.findViewById(R.id.WeatherIcon);
-			weathericon.setImageResource(y.getWeatherIcon(y.getWiNum()));
+			weathericon.setImageResource(y.getWeatherIconNum());
+			TextView weathercondition = (TextView) view.findViewById(R.id.WeatherCondition);
+			weathercondition.setText(y.getWeatherCondition());
+			TextView date = (TextView) view.findViewById(R.id.date);
+			date.setText(y.getDate());
 			ListView frocateListView = (ListView) view
 					.findViewById(R.id.forecast);
 			SimpleAdapter simpleAdapter = new SimpleAdapter(

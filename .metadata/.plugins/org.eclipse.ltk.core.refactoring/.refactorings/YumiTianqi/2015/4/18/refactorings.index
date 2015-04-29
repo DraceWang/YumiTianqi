@@ -1,2 +1,10 @@
 1430116529907	Rename type 'SinaWeather'
 1430123562372	Rename resource 'forecast.xml'
+1430209709152	Delete element
+1430209842226	Rename type 'Weather'
+1430209904616	Delete element
+1430209917644	Rename type 'WeatherInterface'
+1430210548044	Delete element
+1430296407625	Move compilation units
+1430296415407	Move compilation unit
+1430299392346	Rename resource 'fragment_navigation_list.xml'

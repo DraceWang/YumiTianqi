@@ -1,16 +1,18 @@
 package com.boyumi.yumitianqi;
 
 
-import android.app.Activity;
+import java.util.ArrayList;
+
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.Fragment;
-import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -58,6 +60,10 @@ public class NavigationDrawerFragment extends Fragment {
     private int mCurrentSelectedPosition = 0;
     private boolean mFromSavedInstanceState;
     private boolean mUserLearnedDrawer;
+    
+    
+    //navigation list
+    private static ArrayList<String> navList = new ArrayList<>();
 
     public NavigationDrawerFragment() {
     }
@@ -90,25 +96,27 @@ public class NavigationDrawerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        mDrawerListView = (ListView) inflater.inflate(
-                R.layout.fragment_navigation_drawer, container, false);
+    	View root = inflater.inflate(R.layout.fragment_navdrawer, container,
+				false);
+    	navList.removeAll(navList);
+    	navList.add("南京市");
+    	navList.add("北京市");
+    	navList.add("上海市");
+		mDrawerListView = (ListView) root.findViewById(R.id.citylist);
+		mDrawerListView.setAdapter(new ArrayAdapter<String>(getActivity(),
+				R.layout.fragment_navigation_citylist, navList));
+		
+		
+		
         mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 selectItem(position);
             }
         });
-        mDrawerListView.setAdapter(new ArrayAdapter<String>(
-                getActionBar().getThemedContext(),
-                android.R.layout.simple_list_item_activated_1,
-                android.R.id.text1,
-                new String[]{
-                        getString(R.string.title_section1),
-                        getString(R.string.title_section2),
-                        getString(R.string.title_section3),
-                }));
+
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
-        return mDrawerListView;
+        return root;
     }
 
     public boolean isDrawerOpen() {
@@ -280,4 +288,15 @@ public class NavigationDrawerFragment extends Fragment {
          */
         void onNavigationDrawerItemSelected(int position);
     }
+
+	public static ArrayList<String> getNavList() {
+		return navList;
+	}
+
+	public static void setNavList(ArrayList<String> pnavList) {
+		navList = pnavList;
+	}
+
+
+    
 }

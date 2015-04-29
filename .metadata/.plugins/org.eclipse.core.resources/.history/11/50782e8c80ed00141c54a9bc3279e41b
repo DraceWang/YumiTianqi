@@ -1,0 +1,97 @@
+package com.boyumi.yumitianqi;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import android.view.View;
+
+public abstract class Weather {
+	
+	private int WeatherIconNum;
+	private String WeatherCondition;
+	private String Date;
+	private String Temperature;
+	private List<Map<String, Object>> ForecastList = new ArrayList<Map<String, Object>>();
+	
+	private View view;
+	private String CityName;
+	
+	
+	public Weather(View view, String cityname){
+		setView(view);
+		setCityName(cityname);
+	}
+	
+	
+	
+	/**
+	 * geter and seter
+	 */
+	
+	public int getWeatherIconNum() {
+		return WeatherIconNum;
+	}
+	public void setWeatherIconNum(int weatherIconNum) {
+		WeatherIconNum = weatherIconNum;
+	}
+	public String getWeatherCondition() {
+		return WeatherCondition;
+	}
+	public void setWeatherCondition(String weatherCondition) {
+		WeatherCondition = weatherCondition;
+	}
+	public String getDate() {
+		return Date;
+	}
+	public void setDate(String date) {
+		Date = date;
+	}
+	public String getTemperature() {
+		return Temperature;
+	}
+	public void setTemperature(String temperature) {
+		Temperature = temperature;
+	}
+	public List<Map<String, Object>> getForecastList() {
+		return ForecastList;
+	}
+	public void setForecastList(List<Map<String, Object>> forecastList) {
+		ForecastList = forecastList;
+	}
+	
+
+	
+	
+	public View getView() {
+		return view;
+	}
+
+
+
+	public void setView(View view) {
+		this.view = view;
+	}
+
+
+
+	public String getCityName() {
+		return CityName;
+	}
+
+
+
+	public void setCityName(String cityName) {
+		CityName = cityName;
+	}
+
+
+
+	/**
+	 * method to override
+	 */
+	
+	public void getWeather(){
+		
+	}
+}

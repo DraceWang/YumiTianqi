@@ -1,0 +1,11 @@
+package com.boyumi.yumitianqi;
+
+public class Weather implements WeatherInterface{
+
+	@Override
+	public void getWeather() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

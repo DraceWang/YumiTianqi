@@ -1,0 +1,74 @@
+package com.boyumi.yumitianqi;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import android.content.Context;
+
+public class BaiduWeather {
+	
+	private String CityName;
+	private String WeatherCondition;
+	private String Temperature;
+	private String Date;
+	private Context context;
+	private List<Map<String, Object>> ForecastList = new ArrayList<Map<String, Object>>();
+	private int[] weatherIcon = new int[]{
+			R.drawable.windrain,
+			R.drawable.thunderstorm,
+			R.drawable.snowrain,
+			R.drawable.rain,
+			R.drawable.snow,
+			R.drawable.fog,
+			R.drawable.wind,
+			R.drawable.cloudy,
+			R.drawable.sunny,
+	};
+	
+	
+	
+	
+	/**
+	 * geter and seter
+	 */
+	
+	
+	
+	public String getCityName() {
+		return CityName;
+	}
+	public void setCityName(String cityName) {
+		CityName = cityName;
+	}
+	public String getWeatherCondition() {
+		return WeatherCondition;
+	}
+	public void setWeatherCondition(String weatherCondition) {
+		WeatherCondition = weatherCondition;
+	}
+	public String getTemperature() {
+		return Temperature;
+	}
+	public void setTemperature(String temperature) {
+		Temperature = temperature;
+	}
+	public String getDate() {
+		return Date;
+	}
+	public void setDate(String date) {
+		Date = date;
+	}
+	public Context getContext() {
+		return context;
+	}
+	public void setContext(Context context) {
+		this.context = context;
+	}
+	public List<Map<String, Object>> getForecastList() {
+		return ForecastList;
+	}
+	public void setForecastList(List<Map<String, Object>> forecastList) {
+		ForecastList = forecastList;
+	}
+}

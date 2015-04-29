@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffff"
+    android:choiceMode="singleChoice"
+    android:divider="@android:color/transparent"
+    android:dividerHeight="0dp"
+    tools:context="com.boyumi.yumitianqi.NavigationDrawerFragment"
+    android:orientation="vertical" >
+    
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ccc"
+        >
+    	<ImageView
+    	    android:layout_width="60dp"
+    	    android:layout_height="60dp"
+    	    android:id="@+id/myIcon"
+    	    android:layout_marginLeft="10dp"
+    	    android:layout_marginTop="10dp"
+    	    android:layout_marginBottom="10dp"
+    	    android:src="@drawable/ic_launcher"
+    		></ImageView>
+
+    	<TextView
+    	    android:id="@+id/myName"
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content" 
+    	    android:layout_alignTop="@+id/myIcon"
+    	    android:layout_toRightOf="@+id/myIcon"
+    	    android:layout_marginLeft="10dp"
+    	    android:layout_marginTop="12dp"
+    	    android:textSize="10pt"
+    	    android:text="Drace Wang" >
+</TextView>
+        </RelativeLayout>
+    
+    <ListView 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/citylist"
+        android:divider="#cccc"
+        android:dividerHeight="1dp"
+        android:layout_marginTop="20dp"
+        ></ListView>
+	<ImageButton 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:id="@+id/addCity"
+	    android:layout_marginTop="20dp"
+	    android:layout_marginLeft="90dp"
+	    android:background="@drawable/session"
+	    android:onClick="toAddcity"
+	    />
+</LinearLayout>

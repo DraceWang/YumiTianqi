@@ -1,0 +1,140 @@
+package com.boyumi.yumitianqi;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONObject;
+
+import android.content.Context;
+import android.util.Log;
+import android.view.View;
+
+public class JuheWeather implements Weather{
+	
+	private String CityName;
+	private String WeatherCondition;
+	private String Temperature;
+	private String Date;
+	private Context context;
+	private List<Map<String, Object>> ForecastList = new ArrayList<Map<String, Object>>();
+	private int[] weatherIcon = new int[] { R.drawable.windrain,
+			R.drawable.thunderstorm, R.drawable.snowrain, R.drawable.rain,
+			R.drawable.snow, R.drawable.fog, R.drawable.wind,
+			R.drawable.cloudy, R.drawable.sunny, };
+
+	
+	
+	
+	public JuheWeather(View view , String cityname){
+		setContext(view.getContext());
+		setCityName(cityname);
+		getWeather();
+	}
+	
+	
+	
+	@Override
+	public void getWeather() {
+		// TODO Auto-generated method stub
+		if (CityName == null) {
+			System.out.println("error:" + "didn't get a cityname!!");
+			return;
+		}
+		final String juhe_url = "http://v.juhe.cn/weather/index?format=2&cityname="+getCityName()+"&key=b4815115e391e0460400617affd166a1";
+		Thread gw = new Thread() {
+			@Override
+			public void run() {
+				super.run();
+				try {
+					DefaultHttpClient httpClient = new DefaultHttpClient();
+					HttpPost httpPost = new HttpPost(juhe_url);
+					HttpResponse httpResponse = httpClient.execute(httpPost);
+					String strResult = EntityUtils.toString(httpResponse
+							.getEntity());
+//					Log.i("cat", ">>>>>>" + strResult);
+					setTemperature(new JSONObject(strResult)
+							.getJSONObject("result")
+							.getJSONObject("sk")
+							.getString("temp"));
+					setDate(new JSONObject(strResult)
+							.getJSONObject("result")
+							.getJSONObject("today")
+							.getString("date_y")+new JSONObject(strResult)
+							.getJSONObject("result")
+							.getJSONObject("sk")
+							.getString("time"));
+					setWeatherCondition(new JSONObject(strResult)
+							.getJSONObject("result")
+							.getJSONObject("today")
+							.getString("weather"));
+				}catch(Exception e){
+					e.printStackTrace();
+				}
+			}
+		};
+		gw.start();
+		try {
+			gw.join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	/**
+	 * 
+	 * geter and seter
+	 */
+	public String getCityName() {
+		return CityName;
+	}
+	public void setCityName(String cityName) {
+		CityName = cityName;
+	}
+	public String getWeatherCondition() {
+		return WeatherCondition;
+	}
+	public void setWeatherCondition(String weatherCondition) {
+		WeatherCondition = weatherCondition;
+	}
+	public String getTemperature() {
+		return Temperature;
+	}
+	public void setTemperature(String temperature) {
+		Temperature = temperature;
+	}
+	public String getDate() {
+		return Date;
+	}
+	public void setDate(String date) {
+		Date = date;
+	}
+	public Context getContext() {
+		return context;
+	}
+	public void setContext(Context context) {
+		this.context = context;
+	}
+	public List<Map<String, Object>> getForecastList() {
+		return ForecastList;
+	}
+	public void setForecastList(List<Map<String, Object>> forecastList) {
+		ForecastList = forecastList;
+	}
+	
+	@Override
+	public int getWeatherIconNum() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	
+	
+	
+}
