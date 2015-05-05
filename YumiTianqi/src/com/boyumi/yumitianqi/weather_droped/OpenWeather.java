@@ -12,6 +12,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
+import org.junit.Test;
 
 
 import android.annotation.SuppressLint;
@@ -122,5 +123,10 @@ public class OpenWeather {
 		}
 		return null;
 	}
+	
+	
 
+	public static void test(){
+		System.out.println(getInterfaceURL("101010100", "forecast_v"));
+	}
 }

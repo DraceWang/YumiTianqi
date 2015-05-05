@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -18,11 +19,15 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.boyumi.yumitianqi.MainActivity.PlaceholderFragment;
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
@@ -53,7 +58,7 @@ public class NavigationDrawerFragment extends Fragment {
      */
     private ActionBarDrawerToggle mDrawerToggle;
 
-    private DrawerLayout mDrawerLayout;
+    private static DrawerLayout mDrawerLayout;
     private ListView mDrawerListView;
     private View mFragmentContainerView;
 
@@ -116,11 +121,17 @@ public class NavigationDrawerFragment extends Fragment {
         });
 
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
+        /**
+         * set navigation buttons' action
+         */
+
+        
+        
         return root;
     }
 
     public boolean isDrawerOpen() {
-        return mDrawerLayout != null && mDrawerLayout.isDrawerOpen(mFragmentContainerView);
+        return getmDrawerLayout() != null && getmDrawerLayout().isDrawerOpen(mFragmentContainerView);
     }
 
     /**
@@ -131,10 +142,10 @@ public class NavigationDrawerFragment extends Fragment {
      */
     public void setUp(int fragmentId, DrawerLayout drawerLayout) {
         mFragmentContainerView = getActivity().findViewById(fragmentId);
-        mDrawerLayout = drawerLayout;
+        setmDrawerLayout(drawerLayout);
 
         // set a custom shadow that overlays the main content when the drawer opens
-        mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
+        getmDrawerLayout().setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
         // set up the drawer's list view with items and click listener
 
         ActionBar actionBar = getActionBar();
@@ -145,7 +156,7 @@ public class NavigationDrawerFragment extends Fragment {
         // between the navigation drawer and the action bar app icon.
         mDrawerToggle = new ActionBarDrawerToggle(
                 getActivity(),                    /* host Activity */
-                mDrawerLayout,                    /* DrawerLayout object */
+                getmDrawerLayout(),                    /* DrawerLayout object */
                 R.drawable.ic_drawer,             /* nav drawer image to replace 'Up' caret */
                 R.string.navigation_drawer_open,  /* "open drawer" description for accessibility */
                 R.string.navigation_drawer_close  /* "close drawer" description for accessibility */
@@ -183,18 +194,18 @@ public class NavigationDrawerFragment extends Fragment {
         // If the user hasn't 'learned' about the drawer, open it to introduce them to the drawer,
         // per the navigation drawer design guidelines.
         if (!mUserLearnedDrawer && !mFromSavedInstanceState) {
-            mDrawerLayout.openDrawer(mFragmentContainerView);
+            getmDrawerLayout().openDrawer(mFragmentContainerView);
         }
 
         // Defer code dependent on restoration of previous instance state.
-        mDrawerLayout.post(new Runnable() {
+        getmDrawerLayout().post(new Runnable() {
             @Override
             public void run() {
                 mDrawerToggle.syncState();
             }
         });
 
-        mDrawerLayout.setDrawerListener(mDrawerToggle);
+        getmDrawerLayout().setDrawerListener(mDrawerToggle);
     }
 
     private void selectItem(int position) {
@@ -202,8 +213,8 @@ public class NavigationDrawerFragment extends Fragment {
         if (mDrawerListView != null) {
             mDrawerListView.setItemChecked(position, true);
         }
-        if (mDrawerLayout != null) {
-            mDrawerLayout.closeDrawer(mFragmentContainerView);
+        if (getmDrawerLayout() != null) {
+            getmDrawerLayout().closeDrawer(mFragmentContainerView);
         }
         if (mCallbacks != null) {
             mCallbacks.onNavigationDrawerItemSelected(position);
@@ -243,7 +254,7 @@ public class NavigationDrawerFragment extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         // If the drawer is open, show the global app actions in the action bar. See also
         // showGlobalContextActionBar, which controls the top-left area of the action bar.
-        if (mDrawerLayout != null && isDrawerOpen()) {
+        if (getmDrawerLayout() != null && isDrawerOpen()) {
             inflater.inflate(R.menu.global, menu);
             showGlobalContextActionBar();
         }
@@ -257,7 +268,9 @@ public class NavigationDrawerFragment extends Fragment {
         }
 
         if (item.getItemId() == R.id.action_example) {
-            Toast.makeText(getActivity(), "Example action.", Toast.LENGTH_SHORT).show();
+        	Weather w = new JuheWeather(getView(), getNavList().get(mCurrentSelectedPosition));
+        	PlaceholderFragment.freshWeatherView(PlaceholderFragment.getViewTopass(),w);
+        	Toast.makeText(getActivity(), "天气信息已刷新", 3000).show();
             return true;
         }
 
@@ -297,6 +310,21 @@ public class NavigationDrawerFragment extends Fragment {
 		navList = pnavList;
 	}
 
+	public static DrawerLayout getmDrawerLayout() {
+		return mDrawerLayout;
+	}
 
-    
+	public static void setmDrawerLayout(DrawerLayout mDrawerLayout) {
+		NavigationDrawerFragment.mDrawerLayout = mDrawerLayout;
+	}
+	
+	
+	/**
+	 * 
+	 * set onClick method
+	 */
+
+//    public void toMyInfoPage(View view){
+//    	startActivity(new Intent(getActivity(),MyInfo.class));
+//    }
 }
