@@ -6,23 +6,17 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.boyumi.yumitianqi.weather_droped.OpenWeather;
 
 public class MainActivity extends Activity implements
 		NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -51,21 +45,7 @@ public class MainActivity extends Activity implements
 		// Set up the drawer.
 		mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
 				(DrawerLayout) findViewById(R.id.drawer_layout));
-		
-        ImageButton addcity = (ImageButton) findViewById(R.id.addCity);
-        addcity.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View view) {
-				// TODO Auto-generated method stub
-				Toast.makeText(getApplicationContext(), "onClick the addcity btn", 3000).show();
-				startActivity(new Intent(getApplicationContext() ,AddCity.class));
-			}
-		});
-        
-        //test
-//        OpenWeather.test();
-        
+
 	}
 
 	@Override
@@ -125,11 +105,7 @@ public class MainActivity extends Activity implements
 		 * fragment.
 		 */
 		private static final String ARG_SECTION_NUMBER = "section_number";
-		
-		
-		//view used later
-		private static View viewTopass;
-		
+
 		/**
 		 * Returns a new instance of this fragment for the given section number.
 		 */
@@ -155,21 +131,18 @@ public class MainActivity extends Activity implements
 						container, false);
 				//初始化天气并获取天气信息，考虑改成百度天气
 //				Weather y = new YahooWeather(rootView, "南京市");
-				Weather y = new BaiduWeather(rootView, NavigationDrawerFragment.getNavList().get(0));
-//				Weather y = new JuheWeather(rootView,NavigationDrawerFragment.getNavList().get(0));
+//				Weather y = new BaiduWeather(rootView, "南京市");
+				Weather y = new JuheWeather(rootView,NavigationDrawerFragment.getNavList().get(0));
 				//玉米的显示考虑在哪里初始化,最好别在这
 				Cron c = new Cron(y, rootView);
 				c.bugsComing();
 				freshWeatherView(rootView, y);
-				setViewTopass(rootView);
 				return rootView;
 			} else {
 				View rootView = inflater.inflate(R.layout.fragment_othercity,
 						container, false);
-				Weather y = new BaiduWeather(rootView,NavigationDrawerFragment.getNavList().get(pageNum));
-//				Weather y = new JuheWeather(rootView,NavigationDrawerFragment.getNavList().get(pageNum));
+				Weather y = new JuheWeather(rootView,NavigationDrawerFragment.getNavList().get(pageNum));
 				freshWeatherView(rootView, y);
-				setViewTopass(rootView);
 				return rootView;
 			}
 		}
@@ -181,7 +154,7 @@ public class MainActivity extends Activity implements
 					ARG_SECTION_NUMBER));
 		}
 
-		public static void freshWeatherView(View view, Weather y) {
+		public void freshWeatherView(View view, Weather y) {
 			TextView cityname = (TextView) view.findViewById(R.id.CityName);
 			cityname.setText(y.getCityName());
 			TextView temperatrue = (TextView) view
@@ -203,19 +176,5 @@ public class MainActivity extends Activity implements
 							R.id.weather, R.id.temperatrue_rang });
 			frocateListView.setAdapter(simpleAdapter);
 		}
-
-		/**
-		 * 
-		 * getter and setter
-		 */
-		public static View getViewTopass() {
-			return viewTopass;
-		}
-
-		public static void setViewTopass(View viewTopass) {
-			PlaceholderFragment.viewTopass = viewTopass;
-		}
-		
-		
 	}
 }

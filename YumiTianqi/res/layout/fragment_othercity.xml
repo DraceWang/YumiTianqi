@@ -51,8 +51,6 @@
         android:id="@+id/date"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="2dp"
         android:textSize="5pt"
         android:textColor="#666"
         />
