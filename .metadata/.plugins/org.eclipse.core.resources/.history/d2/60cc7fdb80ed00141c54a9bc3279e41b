@@ -1,6 +1,0 @@
-package com.boyumi.yumitianqi;
-
-public interface Weather {
-	
-	public void getWeather();
-}

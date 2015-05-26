@@ -346,4 +346,12 @@ public class YahooWeather implements Weather{
 		// TODO Auto-generated method stub
 		return weatherIcon[getWiNum()];
 	}
+
+
+
+	@Override
+	public Map<String, String> getAirQualityMap() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

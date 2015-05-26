@@ -1,0 +1,225 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#cbdcfd"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.boyumi.yumitianqi.MainActivity$PlaceholderFragment" >
+
+    <TextView
+        android:id="@+id/CityName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:textColor="#000"
+        android:textSize="10pt" />
+
+    <TextView
+        android:id="@+id/currentTemperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/CityName"
+        android:layout_marginRight="20dp"
+        android:textColor="#000"
+        android:textSize="10pt" />
+
+    <ImageView
+        android:id="@+id/WeatherIcon"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignTop="@+id/CityName"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/sunnyrain" />
+	
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/WeatherCondition"
+        android:layout_below="@+id/WeatherIcon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:textSize="10pt"
+        android:textColor="#000"
+        />
+    
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/date"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="2dp" 
+        android:textSize="5pt"
+        android:textColor="#666"
+        />
+   
+    <TableLayout android:layout_width="60dp" android:layout_height="wrap_content" android:id="@+id/btn_AQ" android:layout_above="@+id/body" android:layout_marginLeft="10dp" android:layout_marginBottom="-100dp">
+
+        <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:id="@+id/AQ_title" android:layout_width="60dp" android:layout_height="20dp" android:layout_alignParentLeft="true" android:gravity="center" android:textSize="6pt" />
+        </TableRow>
+
+        <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:id="@+id/AQ_content" android:layout_width="60dp" android:layout_height="20dp" android:gravity="center" android:layout_below="@+id/AQ_title" />
+        </TableRow>
+
+
+    </TableLayout>
+    <HorizontalScrollView
+        android:id="@+id/body"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/WeatherIcon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:layout_alignParentBottom="true"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RelativeLayout
+                android:layout_width="310dp"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:id="@+id/cron"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="40dp"
+                    android:src="@drawable/cron" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar_gv"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="12dp"
+                    android:layout_height="100dp"
+                    android:layout_alignTop="@+id/cron"
+                    android:layout_marginLeft="15dp"
+                    android:max="200"
+                    android:progress="80"
+                    android:progressDrawable="@drawable/mybar_gv" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar_wv"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="8dp"
+                    android:layout_height="80dp"
+                    android:layout_above="@+id/Date"
+                    android:layout_alignBottom="@+id/progressBar_gv"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toRightOf="@+id/progressBar_gv"
+                    android:max="50"
+                    android:progress="80"
+                    android:progressDrawable="@drawable/mybar_wv" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar_hv"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="8dp"
+                    android:layout_height="60dp"
+                    android:layout_above="@+id/Date"
+                    android:layout_alignBottom="@+id/progressBar_gv"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toRightOf="@+id/progressBar_wv"
+                    android:max="10"
+                    android:progress="80"
+                    android:progressDrawable="@drawable/mybar_hv" />
+
+                <ImageButton
+                    android:id="@+id/imageButton_water"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_above="@+id/imageButton_bug"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/cron"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/water"
+                    android:onClick="water"
+                    android:scaleType="fitCenter" />
+
+                <ImageButton
+                    android:id="@+id/imageButton_bug"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_above="@+id/imageButton_feiliao"
+                    android:layout_alignLeft="@+id/imageButton_water"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/bug"
+                    android:scaleType="fitCenter" />
+
+                <ImageButton
+                    android:id="@+id/imageButton_feiliao"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_alignBottom="@+id/cron"
+                    android:layout_alignLeft="@+id/imageButton_water"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="-20dp"
+                    android:background="@drawable/feiliao"
+                    android:scaleType="fitCenter" />
+
+                <TextView
+                    android:id="@+id/grown"
+                    android:layout_width="12dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/progressBar_gv"
+                    android:layout_below="@+id/progressBar_gv"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginLeft="-1dp"
+                    android:text="成长值"
+                    android:textColor="#000"
+                    android:textSize="5pt" />
+
+                <TextView
+                    android:id="@+id/water"
+                    android:layout_width="12dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/progressBar_wv"
+                    android:layout_below="@+id/progressBar_wv"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginLeft="-3dp"
+                    android:text="含水量"
+                    android:textColor="#000"
+                    android:textSize="5pt" />
+
+                <TextView
+                    android:id="@+id/healthy"
+                    android:layout_width="12dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/progressBar_hv"
+                    android:layout_below="@+id/progressBar_hv"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginLeft="-4dp"
+                    android:text="健康值"
+                    android:textColor="#000"
+                    android:textSize="5pt" />
+            </RelativeLayout>
+
+            <ListView
+                android:id="@+id/forecast"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="50dp" >
+            </ListView>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+   
+
+   
+</RelativeLayout>

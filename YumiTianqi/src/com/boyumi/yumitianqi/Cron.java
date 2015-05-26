@@ -29,18 +29,8 @@ public class Cron {
 	
 	
 	
-	public Cron(Weather w,View passview){
-		weather = w.getWeatherIconNum();
-		view = passview;
-		System.out.println(havedata);
-		if(!havedata){
-			initialize();
-			return;
-		}
-		cron_sp = passview.getContext().getSharedPreferences("cron", 0); //MODE_PRIVATE=0x0000
-		setGrownValue(cron_sp.getInt("grown", 10));
-		setHealthyValue(cron_sp.getInt("healthy", 40));
-		setWaterValue(cron_sp.getInt("water", 10));
+	public Cron(){
+		initialize();
 	}
 	
 	
@@ -98,7 +88,10 @@ public class Cron {
 		hv.setProgress(getHealthyValue());
 	}
 
-	public void bugsComing() {
+	public void bugsComing(Weather w,View passview) {
+		weather = w.getWeatherIconNum();
+		view = passview;
+//		System.out.println(havedata);
 		int p = new Random().nextInt(11);//10% of get a bug on cron
 		if (p < 1)
 			this.stauteChange(0, -3, -10);

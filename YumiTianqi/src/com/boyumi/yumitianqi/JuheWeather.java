@@ -1,5 +1,15 @@
 package com.boyumi.yumitianqi;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,6 +24,7 @@ import org.json.JSONObject;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.Toast;
 
 public class JuheWeather implements Weather {
 
@@ -29,12 +40,26 @@ public class JuheWeather implements Weather {
 			R.drawable.snow, R.drawable.fog, R.drawable.wind,
 			R.drawable.cloudy, R.drawable.sunny,R.drawable.themperature };
 
+	private Map<String, String> AirQualityMap = new HashMap<String, String>(); 
+	private String AQtime;
+	/**
+	 * 
+	 * @param view
+	 * @param cityname
+	 */
 	public JuheWeather(View view, String cityname) {
 		setContext(view.getContext());
 		setCityName(cityname);
 		getWeather();
 	}
 
+	
+	
+	
+	
+	
+	
+	
 	@Override
 	public void getWeather() {
 		// TODO Auto-generated method stub
@@ -54,7 +79,7 @@ public class JuheWeather implements Weather {
 					HttpResponse httpResponse = httpClient.execute(httpPost);
 					String strResult = EntityUtils.toString(httpResponse
 							.getEntity());
-					// Log.i("cat", ">>>>>>" + strResult);
+//					 Log.i("Weather", ">>>>>>" + strResult);
 					// current Weather
 					setTemperature(new JSONObject(strResult)
 							.getJSONObject("result").getJSONObject("sk")
@@ -94,12 +119,121 @@ public class JuheWeather implements Weather {
 		gw.start();
 		try {
 			gw.join();
+			if(isAQupdate()){
+				getCityAQ(CityName);
+			}else{
+				getAQ();
+				getCityAQ(CityName);
+			}
+			
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
+	
+	/**
+	 * get AirQuality info  API from pm25.in
+	 */
+	public void getAQ(){
+		
+		final String URL = "http://www.pm25.in/api/querys/all_cities.json?token=5j1znBVAsnSf5xQyNQyq";
+		
+		
+		Thread gaq = new Thread() {
+			@Override
+			public void run() {
+				super.run();
+				try {
+					URL url = new URL(URL);
+					HttpURLConnection conn = (HttpURLConnection) url.openConnection();  
+	                InputStream inStream = conn.getInputStream();
+	                InputStreamReader read = new InputStreamReader(inStream, "UTF-8");
+	     		    BufferedReader br = new BufferedReader(read);
+	     			String strResult ="";
+	     			String tempLine;
+	     			while ((tempLine = br.readLine()) != null) {
+	     				strResult += tempLine;
+	     			}
+	     			FileOutputStream out = getContext().openFileOutput("AitQuality.json", Context.MODE_PRIVATE);
+	     			BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(out));
+	     			writer.write(strResult);
+	     			if(new JSONObject(strResult).has("error")){
+	     				Toast.makeText(getContext(), "没有获取到空气质量信息", 3000);	
+	     			}
+				}catch(Exception e){
+					e.printStackTrace();
+				}
+			}
+		};
+		gaq.start();
+		try {
+			gaq.join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void getCityAQ(String cityname){
+		FileInputStream in;
+		try {
+			in = getContext().openFileInput("AitQuality.json");
+			BufferedReader ReaderIn = new BufferedReader(new InputStreamReader(in));
+			String strResult ="";
+			String tempLine;
+			while ((tempLine = ReaderIn.readLine()) != null) {
+				strResult += tempLine;
+			}
+			JSONArray AQArray = new JSONArray(strResult);
+			for(int i=0;i<AQArray.length();i++){
+				if(cityname.equals(AQArray.getJSONObject(i).getString("area"))){
+					JSONObject ObjectC = AQArray.getJSONObject(i);
+					AirQualityMap.clear();
+					AirQualityMap.put("空气质量", ObjectC.getString("quality"));
+					AirQualityMap.put("PM2.5", ObjectC.getString("pm2_5"));
+					AirQualityMap.put("PM10", ObjectC.getString("pm10"));
+					AirQualityMap.put("主要污染物", ObjectC.getString("primary_pollutant"));
+				}
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public boolean isAQupdate(){
+		try {
+			FileInputStream in = getContext().openFileInput("AitQuality.json");
+			BufferedReader ReaderIn = new BufferedReader(new InputStreamReader(in));
+			String strResult ="";
+ 			String tempLine;
+ 			while ((tempLine = ReaderIn.readLine()) != null) {
+ 				strResult += tempLine;
+ 			}
+ 			JSONArray AQArray = new JSONArray(strResult);
+ 			setAQtime(AQArray.getJSONObject(0).getString("time_point").split("T")[0]);
+ 			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+ 			if(getAQtime().equals(df.format(new java.util.Date()))){
+ 				return true;
+ 			}else{
+ 				return false;
+ 			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false;
+		
+	}
+	
+	
+	
+	
+	
+	
 	public int transfer(int wid) {
 		switch (wid) {
 		case 0:
@@ -167,6 +301,17 @@ public class JuheWeather implements Weather {
 		return 9;
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/**
 	 * 
 	 * geter and seter
@@ -233,6 +378,21 @@ public class JuheWeather implements Weather {
 	public int getWeatherIconNum() {
 		// TODO Auto-generated method stub
 		return weatherIcon[getWid()];
+	}
+
+
+	@Override
+	public Map<String, String> getAirQualityMap() {
+		// TODO Auto-generated method stub
+		return AirQualityMap;
+	}
+
+	public String getAQtime() {
+		return AQtime;
+	}
+
+	public void setAQtime(String aQtime) {
+		AQtime = aQtime;
 	}
 	
 }

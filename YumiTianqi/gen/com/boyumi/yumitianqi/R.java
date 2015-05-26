@@ -10,6 +10,14 @@ package com.boyumi.yumitianqi;
 public final class R {
     public static final class attr {
     }
+    public static final class color {
+        public static final int AQ_A=0x7f040000;
+        public static final int AQ_B=0x7f040001;
+        public static final int AQ_C=0x7f040002;
+        public static final int AQ_D=0x7f040003;
+        public static final int AQ_E=0x7f040004;
+        public static final int AQ_F=0x7f040005;
+    }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
 
@@ -18,14 +26,14 @@ public final class R {
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
     
          */
-        public static final int activity_horizontal_margin=0x7f040000;
-        public static final int activity_vertical_margin=0x7f040001;
+        public static final int activity_horizontal_margin=0x7f050000;
+        public static final int activity_vertical_margin=0x7f050001;
         /** 
          Per the design guidelines, navigation drawers should be between 240dp and 320dp:
          https://developer.android.com/design/patterns/navigation-drawer.html
     
          */
-        public static final int navigation_drawer_width=0x7f040002;
+        public static final int navigation_drawer_width=0x7f050002;
     }
     public static final class drawable {
         public static final int bug=0x7f020000;
@@ -56,59 +64,72 @@ public final class R {
         public static final int windrain=0x7f020019;
     }
     public static final class id {
-        public static final int CityName=0x7f080006;
-        public static final int Date=0x7f08000f;
-        public static final int WeatherCondition=0x7f080009;
-        public static final int WeatherIcon=0x7f080008;
-        public static final int action_example=0x7f08001d;
-        public static final int action_settings=0x7f08001c;
-        public static final int addCity=0x7f08001b;
-        public static final int body=0x7f08000b;
-        public static final int citylist=0x7f08001a;
-        public static final int container=0x7f080001;
-        public static final int cron=0x7f08000c;
-        public static final int currentTemperature=0x7f080007;
-        public static final int date=0x7f08000a;
-        public static final int day=0x7f080003;
-        public static final int drawer_layout=0x7f080000;
-        public static final int forecast=0x7f080017;
-        public static final int grown=0x7f080014;
-        public static final int healthy=0x7f080016;
-        public static final int imageButton_bug=0x7f080012;
-        public static final int imageButton_feiliao=0x7f080013;
-        public static final int imageButton_water=0x7f080011;
-        public static final int myIcon=0x7f080018;
-        public static final int myName=0x7f080019;
-        public static final int navigation_drawer=0x7f080002;
-        public static final int progressBar_gv=0x7f08000d;
-        public static final int progressBar_hv=0x7f080010;
-        public static final int progressBar_wv=0x7f08000e;
-        public static final int temperatrue_rang=0x7f080005;
-        public static final int water=0x7f080015;
-        public static final int weather=0x7f080004;
+        public static final int AQ_content=0x7f090014;
+        public static final int AQ_title=0x7f090013;
+        public static final int CityName=0x7f09000c;
+        public static final int Date=0x7f090018;
+        public static final int GpsCityName=0x7f090006;
+        public static final int WeatherCondition=0x7f09000f;
+        public static final int WeatherIcon=0x7f09000e;
+        public static final int about=0x7f090025;
+        public static final int action_example=0x7f090027;
+        public static final int addCity=0x7f090024;
+        public static final int body=0x7f090012;
+        public static final int btn_AQ=0x7f090011;
+        public static final int btn_addcity=0x7f090008;
+        public static final int citylist=0x7f090023;
+        public static final int cityname_add=0x7f090007;
+        public static final int container=0x7f090004;
+        public static final int cron=0x7f090015;
+        public static final int currentTemperature=0x7f09000d;
+        public static final int date=0x7f090010;
+        public static final int day=0x7f090009;
+        public static final int drawer_layout=0x7f090003;
+        public static final int exit=0x7f090026;
+        public static final int forecast=0x7f090020;
+        public static final int grown=0x7f09001d;
+        public static final int healthy=0x7f09001f;
+        public static final int imageButton_bug=0x7f09001b;
+        public static final int imageButton_feiliao=0x7f09001c;
+        public static final int imageButton_water=0x7f09001a;
+        public static final int myIcon=0x7f090021;
+        public static final int myName=0x7f090022;
+        public static final int navigation_drawer=0x7f090005;
+        public static final int progressBar_gv=0x7f090016;
+        public static final int progressBar_hv=0x7f090019;
+        public static final int progressBar_wv=0x7f090017;
+        public static final int ratingBar1=0x7f090000;
+        public static final int temperatrue_rang=0x7f09000b;
+        public static final int textView1=0x7f090001;
+        public static final int textView2=0x7f090002;
+        public static final int water=0x7f09001e;
+        public static final int weather=0x7f09000a;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
-        public static final int forecast_list=0x7f030001;
-        public static final int fragment_main=0x7f030002;
-        public static final int fragment_navdrawer=0x7f030003;
-        public static final int fragment_navigation_citylist=0x7f030004;
-        public static final int fragment_navigation_drawer=0x7f030005;
-        public static final int fragment_othercity=0x7f030006;
+        public static final int aboutus=0x7f030000;
+        public static final int activity_main=0x7f030001;
+        public static final int add_city_page=0x7f030002;
+        public static final int forecast_list=0x7f030003;
+        public static final int fragment_main=0x7f030004;
+        public static final int fragment_navdrawer=0x7f030005;
+        public static final int fragment_navigation_citylist=0x7f030006;
+        public static final int fragment_othercity=0x7f030007;
+        public static final int myinfo=0x7f030008;
     }
     public static final class menu {
-        public static final int global=0x7f070000;
-        public static final int main=0x7f070001;
+        public static final int global=0x7f080000;
+        public static final int main=0x7f080001;
     }
     public static final class string {
-        public static final int action_example=0x7f050006;
-        public static final int action_settings=0x7f050007;
-        public static final int app_name=0x7f050000;
-        public static final int navigation_drawer_close=0x7f050005;
-        public static final int navigation_drawer_open=0x7f050004;
-        public static final int title_section1=0x7f050001;
-        public static final int title_section2=0x7f050002;
-        public static final int title_section3=0x7f050003;
+        public static final int About=0x7f060007;
+        public static final int Exit=0x7f060008;
+        public static final int app_name=0x7f060000;
+        public static final int navigation_drawer_close=0x7f060005;
+        public static final int navigation_drawer_open=0x7f060004;
+        public static final int refresh=0x7f060006;
+        public static final int title_section1=0x7f060001;
+        public static final int title_section2=0x7f060002;
+        public static final int title_section3=0x7f060003;
     }
     public static final class style {
         /** 
@@ -132,10 +153,10 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f060000;
+        public static final int AppBaseTheme=0x7f070000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f060001;
+        public static final int AppTheme=0x7f070001;
     }
 }

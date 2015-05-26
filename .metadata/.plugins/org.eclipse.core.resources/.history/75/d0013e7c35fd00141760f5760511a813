@@ -1,0 +1,66 @@
+package com.boyumi.yumitianqi;
+
+import java.io.InputStream;
+
+import org.apache.http.util.EncodingUtils;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.MultiAutoCompleteTextView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class AddCity extends Activity{
+	MultiAutoCompleteTextView mauto;
+	String[] CityNameHint = new String[] {};
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.add_city_page);
+		
+		findCityName();
+		TextView GCN = (TextView) findViewById(R.id.GpsCityName);
+		GCN.setText(MainActivity.GpsCityName);
+		ArrayAdapter<String> aa = new ArrayAdapter<String>(this,
+				android.R.layout.simple_dropdown_item_1line, CityNameHint);
+		mauto = (MultiAutoCompleteTextView) findViewById(R.id.cityname_add);
+		mauto.setAdapter(aa);
+		mauto.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
+	}
+	
+	public void findCityName() {
+		String res;
+		try {
+			InputStream in = getResources().getAssets().open("cityname.txt");
+			int length = in.available();
+			byte[] buffer = new byte[length];
+			in.read(buffer);
+			res = EncodingUtils.getString(buffer, "UTF-8");
+			CityNameHint = res.split(";");
+			System.out.println(CityNameHint.toString());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	public void addcity(View view){
+		
+		String newCity = mauto.getText().toString();
+		if (newCity==null){
+			Toast.makeText(view.getContext(), "未输入任何城市", 3000).show();
+		}else{
+			Intent data = new Intent();
+			data.putExtra("AddNewCity", newCity);
+			setResult(0, data);
+//			NavigationDrawerFragment.getmDrawerLayout().closeDrawer(view);
+			finish();
+		}
+	}
+
+		
+
+}

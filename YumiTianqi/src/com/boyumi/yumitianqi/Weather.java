@@ -20,4 +20,6 @@ public interface Weather {
 	public CharSequence getWeatherCondition();
 
 	public CharSequence getDate();
+	
+	public Map<String, String> getAirQualityMap();
 }
